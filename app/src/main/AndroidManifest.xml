@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.info498.bestgroup.tindar" >
+
     <uses-feature android:name="android.hardware.camera" />
 
-    <uses-permission android:name="android.permission.FLASHLIGHT"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
-
-
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -28,6 +28,15 @@
             android:enabled="true"
             android:exported="true" >
         </receiver>
+
+        <activity
+            android:name=".Home"
+            android:label="@string/title_activity_home" >
+        </activity>
+        <activity
+            android:name=".Vibrate"
+            android:label="@string/title_activity_vibrate" >
+        </activity>
     </application>
 
 </manifest>
