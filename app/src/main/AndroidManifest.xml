@@ -39,6 +39,14 @@
             android:name=".Vibrate"
             android:label="@string/title_activity_vibrate" >
         </activity>
+        <activity
+            android:name=".Connected"
+            android:label="@string/title_activity_connected" >
+        </activity>
+        <activity
+            android:name=".Doodling"
+            android:label="@string/title_activity_doodling" >
+        </activity>
     </application>
 
 </manifest>

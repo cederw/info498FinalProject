@@ -1,0 +1,118 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context=".MainActivity">
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="55dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="CONNECTED"
+        android:id="@+id/connectionText"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:autoText="false"
+        android:background="#80CBC4"
+        android:textColor="#F5F5F5" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="65dp"
+        android:id="@+id/vibrateButton"
+        android:layout_below="@+id/connectionText"
+        android:paddingTop="1dp"
+        android:layout_marginTop="15dp"
+        android:background="#009688"
+        android:layout_centerHorizontal="true" >
+    <android.widget.IconTextView
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:text="{fa-mobile}"
+        android:id="@+id/vibrateIcon"
+        android:textSize="46dp"
+        android:textColor="#EEEEEE"
+        android:paddingStart="115dp"
+        android:paddingEnd="26dp"
+        android:paddingLeft="115dp"
+        android:paddingRight="20dp"
+        android:paddingTop="8dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:id="@+id/vibrateText"
+            android:text="VIBRATE"
+            android:textSize="30dp"
+            android:paddingTop="10dp"
+            android:textColor="#EEEEEE"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="65dp"
+        android:id="@+id/flashlightButton"
+        android:paddingTop="1dp"
+        android:background="#009688"
+        android:layout_below="@+id/vibrateButton"
+        android:layout_marginTop="15dp">
+        <android.widget.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="{fa-lightbulb-o}"
+            android:id="@+id/flashlightIcon"
+            android:textSize="40dp"
+            android:textColor="#EEEEEE"
+            android:paddingStart="85dp"
+            android:paddingEnd="26dp"
+            android:paddingLeft="85dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:id="@+id/flashlightText"
+            android:text="FLASHLIGHT"
+            android:textSize="30dp"
+            android:paddingTop="10dp"
+            android:textColor="#EEEEEE"/>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="65dp"
+        android:text="OPTIONAL"
+        android:id="@+id/optionalButton1"
+        android:textSize="25dp"
+        android:textColor="#EEEEEE"
+        android:paddingStart="30dp"
+        android:paddingEnd="26dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="26dp"
+        android:background="#009688"
+        android:radius="100dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/flashlightButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="65dp"
+        android:text="OPTIONAL"
+        android:id="@+id/optionalButton2"
+        android:textSize="25dp"
+        android:textColor="#EEEEEE"
+        android:paddingStart="30dp"
+        android:paddingEnd="26dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="26dp"
+        android:background="#009688"
+        android:radius="100dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/optionalButton1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>
