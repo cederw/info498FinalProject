@@ -14,7 +14,7 @@ Walter Ceder
 
  */
 public class Flash extends BroadcastReceiver {
-    private Camera cam;
+    private static Camera cam;
     public Flash() {
     }
 
@@ -25,7 +25,10 @@ public class Flash extends BroadcastReceiver {
         //throw new UnsupportedOperationException("Not yet implemented");
         if(context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)&&context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)){
 
-
+            if(cam !=null){
+                cam.stopPreview();
+                cam.release();
+            }
             cam = null;
             try {
               //  cam.release();
