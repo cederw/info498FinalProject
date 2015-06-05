@@ -27,23 +27,19 @@
         android:layout_centerHorizontal="true"
         android:textSize="24dp" />
 
-    <Button
+    <com.gc.materialdesign.views.ButtonRectangle
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:text="Find a new friend!"
         android:id="@+id/findButton"
-        android:textSize="25dp"
+        android:textSize="5pt"
         android:textColor="#ffffff"
-        android:paddingStart="30dp"
-        android:paddingEnd="26dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="26dp"
         android:background="#009688"
         android:radius="100dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="61dp">
-        </Button>
+        </com.gc.materialdesign.views.ButtonRectangle>
 
     <TextView
         android:layout_width="wrap_content"
@@ -59,29 +55,25 @@
         android:textIsSelectable="false"
         android:visibility="invisible" />
 
-    <Button
+    <com.gc.materialdesign.views.ButtonRectangle
         android:layout_width="wrap_content"
-        android:layout_height="75dp"
+        android:layout_height="85dp"
         android:text="Stop searching!"
         android:id="@+id/stopButton"
-        android:textSize="25dp"
+        android:textSize="5pt"
         android:textColor="#ffffff"
-        android:paddingStart="30dp"
-        android:paddingEnd="26dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="26dp"
         android:background="#d32f2f"
         android:radius="100dp"
         android:layout_alignBottom="@+id/findButton"
         android:layout_centerHorizontal="true"
         android:visibility="invisible" />
 
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@android:style/Widget.Holo.Light.ProgressBar.Large"
+    <com.gc.materialdesign.views.ProgressBarCircularIndeterminate
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
+        android:background="#009688"
         android:id="@+id/spinner"
         android:visibility="invisible" />
 

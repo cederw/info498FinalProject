@@ -6,6 +6,7 @@
         android:layout_height="55dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="CONNECTED"
+        android:textSize="28sp"
         android:id="@+id/connectionText"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -14,105 +15,98 @@
         android:gravity="center"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
-        android:autoText="false"
-        android:background="#80CBC4"
-        android:textColor="#F5F5F5" />
+        android:background="#4DB6AC"
+        android:textColor="#ffffff" />
 
-    <LinearLayout
+    <com.gc.materialdesign.views.ButtonRectangle
         android:layout_width="fill_parent"
-        android:layout_height="65dp"
+        android:layout_height="75dp"
+        android:text="Vibrate"
         android:id="@+id/vibrateButton"
-        android:layout_below="@+id/connectionText"
-        android:paddingTop="1dp"
-        android:layout_marginTop="15dp"
-        android:background="#009688"
-        android:layout_centerHorizontal="true" >
-    <android.widget.IconTextView
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:text="{fa-mobile}"
-        android:id="@+id/vibrateIcon"
-        android:textSize="46dp"
+        android:textSize="13sp"
         android:textColor="#EEEEEE"
-        android:paddingStart="115dp"
-        android:paddingEnd="26dp"
-        android:paddingLeft="115dp"
-        android:paddingRight="20dp"
-        android:paddingTop="8dp" />
-        <TextView
+        android:background="#009688"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/connectionText">
+        <android.widget.IconTextView
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:id="@+id/vibrateText"
-            android:text="VIBRATE"
-            android:textSize="30dp"
-            android:paddingTop="10dp"
-            android:textColor="#EEEEEE"/>
-    </LinearLayout>
+            android:text="{fa-mobile}"
+            android:id="@+id/test4"
+            android:textSize="45dp"
+            android:textColor="#EEEEEE"
+            android:paddingLeft="40dp"
+            android:paddingTop="10dp"/>
+    </com.gc.materialdesign.views.ButtonRectangle>
 
-    <LinearLayout
+    <com.gc.materialdesign.views.ButtonRectangle
         android:layout_width="fill_parent"
-        android:layout_height="65dp"
+        android:layout_height="75dp"
+        android:text="Flashlight"
         android:id="@+id/flashlightButton"
-        android:paddingTop="1dp"
+        android:textSize="13sp"
+        android:textColor="#EEEEEE"
         android:background="#009688"
-        android:layout_below="@+id/vibrateButton"
-        android:layout_marginTop="15dp">
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/vibrateButton">
         <android.widget.IconTextView
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:text="{fa-lightbulb-o}"
-            android:id="@+id/flashlightIcon"
+            android:id="@+id/test3"
             android:textSize="40dp"
             android:textColor="#EEEEEE"
-            android:paddingStart="85dp"
-            android:paddingEnd="26dp"
-            android:paddingLeft="85dp"
-            android:paddingRight="20dp"
-            android:paddingTop="10dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:id="@+id/flashlightText"
-            android:text="FLASHLIGHT"
-            android:textSize="30dp"
-            android:paddingTop="10dp"
-            android:textColor="#EEEEEE"/>
-    </LinearLayout>
+            android:paddingLeft="40dp"
+            android:paddingTop="13dp"/>
+    </com.gc.materialdesign.views.ButtonRectangle>
 
-    <Button
+    <com.gc.materialdesign.views.ButtonRectangle
         android:layout_width="fill_parent"
-        android:layout_height="65dp"
-        android:text="OPTIONAL"
-        android:id="@+id/optionalButton1"
-        android:textSize="25dp"
+        android:layout_height="75dp"
+        android:text="Doodle"
+        android:id="@+id/doodleButton"
         android:textColor="#EEEEEE"
-        android:paddingStart="30dp"
-        android:paddingEnd="26dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="26dp"
         android:background="#009688"
-        android:radius="100dp"
+        android:textSize="14sp"
         android:layout_marginTop="15dp"
         android:layout_below="@+id/flashlightButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"  >
+        <android.widget.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="{fa-paint-brush}"
+            android:id="@+id/test5"
+            android:textSize="32dp"
+            android:textColor="#EEEEEE"
+            android:paddingLeft="40dp"
+            android:paddingTop="18dp"/>
+    </com.gc.materialdesign.views.ButtonRectangle>
 
-    <Button
+    <com.gc.materialdesign.views.ButtonRectangle
         android:layout_width="fill_parent"
-        android:layout_height="65dp"
+        android:layout_height="75dp"
         android:text="OPTIONAL"
         android:id="@+id/optionalButton2"
-        android:textSize="25dp"
+        android:textSize="13sp"
         android:textColor="#EEEEEE"
-        android:paddingStart="30dp"
-        android:paddingEnd="26dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="26dp"
         android:background="#009688"
-        android:radius="100dp"
         android:layout_marginTop="15dp"
-        android:layout_below="@+id/optionalButton1"
+        android:layout_below="@+id/doodleButton"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true" >
+        <android.widget.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="{fa-question}"
+            android:id="@+id/test1"
+            android:textSize="40dp"
+            android:textColor="#EEEEEE"
+            android:paddingLeft="40dp"
+            android:paddingRight="50dp"
+            android:paddingTop="12dp"/>
+        </com.gc.materialdesign.views.ButtonRectangle>
 
 </RelativeLayout>

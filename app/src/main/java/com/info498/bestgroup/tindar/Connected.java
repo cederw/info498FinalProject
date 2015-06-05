@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -15,12 +16,10 @@ import org.w3c.dom.Text;
 
 public class Connected extends ActionBarActivity {
     TextView connectionText;
-    TextView vibrateIcon;
-    TextView vibrateText;
-    TextView flashlightIcon;
-    TextView flashlightText;
-    Button optionalButton1;
-    Button optionalButton2;
+    com.gc.materialdesign.views.ButtonRectangle vibrateButton;
+    com.gc.materialdesign.views.ButtonRectangle flashlightButton;
+    com.gc.materialdesign.views.ButtonRectangle doodleButton;
+    com.gc.materialdesign.views.ButtonRectangle optionalButton2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,22 +27,22 @@ public class Connected extends ActionBarActivity {
         setContentView(R.layout.activity_connected);
 
         connectionText = (TextView) findViewById(R.id.connectionText);
-        vibrateIcon = (TextView) findViewById(R.id.vibrateIcon);
-        vibrateText = (TextView) findViewById(R.id.vibrateText);
-        flashlightIcon = (TextView) findViewById(R.id.flashlightIcon);
-        flashlightText = (TextView) findViewById(R.id.flashlightText);
-        optionalButton1 = (Button) findViewById(R.id.optionalButton1);
-        optionalButton2 = (Button) findViewById(R.id.optionalButton2);
+        vibrateButton = (com.gc.materialdesign.views.ButtonRectangle) findViewById(R.id.vibrateButton);
+        flashlightButton = (com.gc.materialdesign.views.ButtonRectangle) findViewById(R.id.flashlightButton);
+        doodleButton = (com.gc.materialdesign.views.ButtonRectangle) findViewById(R.id.doodleButton);
+        optionalButton2 = (com.gc.materialdesign.views.ButtonRectangle) findViewById(R.id.optionalButton2);
+
+        vibrateButton.setRippleSpeed(80f);
+        flashlightButton.setRippleSpeed(80f);
+        doodleButton.setRippleSpeed(80f);
+        optionalButton2.setRippleSpeed(80f);
+
 
         Typeface robotoFont = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Bold.ttf");
-        Typeface robotoFontItalic = Typeface.createFromAsset(getAssets(),"fonts/Roboto-BoldItalic.ttf");
+        Typeface robotoFontItalic = Typeface.createFromAsset(getAssets(),"fonts/Roboto-MediumItalic.ttf");
         Typeface fontAwesome = Typeface.createFromAsset(getAssets(), "fonts/fontawesome.ttf");
 
         connectionText.setTypeface(robotoFontItalic);
-        vibrateText.setTypeface(robotoFont);
-        flashlightText.setTypeface(robotoFont);
-        optionalButton1.setTypeface(robotoFont);
-        optionalButton2.setTypeface(robotoFont);
     }
 
     @Override

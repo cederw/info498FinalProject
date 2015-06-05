@@ -23,9 +23,9 @@ public class Home extends Activity {
     TextView title;
     TextView tagline;
     TextView search;
-    Button findButton;
-    Button stopButton;
-    ProgressBar spinner;
+    com.gc.materialdesign.views.ButtonRectangle findButton;
+    com.gc.materialdesign.views.ButtonRectangle stopButton;
+    com.gc.materialdesign.views.ProgressBarCircularIndeterminate spinner;
     AnimatorSet oa = new AnimatorSet();
     boolean animating = false;
 
@@ -40,15 +40,16 @@ public class Home extends Activity {
         title = (TextView) findViewById(R.id.title);
         tagline = (TextView) findViewById(R.id.tagline);
         search = (TextView) findViewById(R.id.search);
-        findButton = (Button) findViewById(R.id.findButton);
-        stopButton = (Button) findViewById(R.id.stopButton);
-        spinner = (ProgressBar) findViewById(R.id.spinner);
+        findButton = (com.gc.materialdesign.views.ButtonRectangle) findViewById(R.id.findButton);
+        stopButton = (com.gc.materialdesign.views.ButtonRectangle) findViewById(R.id.stopButton);
+        spinner = (com.gc.materialdesign.views.ProgressBarCircularIndeterminate) findViewById(R.id.spinner);
 
         title.setTypeface(robotoFont);
         tagline.setTypeface(robotoFont);
-        findButton.setTypeface(robotoFont);
-        stopButton.setTypeface(robotoFont);
         search.setTypeface(fontAwesome);
+
+        findButton.setRippleSpeed(80f);
+        stopButton.setRippleSpeed(80f);
 
         findButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +78,7 @@ public class Home extends Activity {
         final float y = search.getY();
 
         oa.playSequentially(ObjectAnimator.ofFloat(search, "x", 150), // anim 1
-                ObjectAnimator.ofFloat(search, "y", 400), // anim 2
+                ObjectAnimator.ofFloat(search, "y", 550), // anim 2
                 ObjectAnimator.ofFloat(search, "x", x), // anim 3
                 ObjectAnimator.ofFloat(search, "y", y)); // anim 4
         oa.setDuration(425);
