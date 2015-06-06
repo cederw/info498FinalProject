@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" />
+</project>
+
+=======
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
   </component>
@@ -20,4 +25,8 @@
     <option name="id" value="Android" />
   </component>
 </project>
+<<<<<<< HEAD
 
+=======
+>>>>>>> c2799e2ba538faac3bc9f9c8883bfed3d39d8c65
+>>>>>>> efd995c9e0f689c8bc87a6c4728b95f6b7fe8695
