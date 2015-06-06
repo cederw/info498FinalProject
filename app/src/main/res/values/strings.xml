@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tindar</string>
+
+    <string name="search">&#xf002;</string>
+    <string name="vibrate">&#xf10b;</string>
+    <string name="flashlight">&#xf0eb;</string>
+    <string name="optional">&#xf059;;</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_home">Home</string>
+    <string name="title_activity_vibrate">Vibrate</string>
+    <string name="title_activity_connected">Connected</string>
+    <string name="title_activity_doodling">Doodling</string>
+</resources>

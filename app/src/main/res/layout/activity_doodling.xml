@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:animateLayoutChanges="true"
+    android:orientation="vertical">
+
+    <com.info498.bestgroup.tindar.DrawView
+        android:id="@+id/canvas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="#FFFFFF" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/undoRedoButtons"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="end|top">
+        <com.gc.materialdesign.views.ButtonRectangle
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/undoButton"
+            android:background="#009688">
+            <IconTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="{fa-undo}"
+                android:textSize="20sp"
+                android:textColor="#ffffff"
+                android:layout_centerInParent="true"/>
+        </com.gc.materialdesign.views.ButtonRectangle>
+        <com.gc.materialdesign.views.ButtonRectangle
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/redoButton"
+            android:background="#009688">
+            <IconTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="{fa-repeat}"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:layout_centerInParent="true"/>
+        </com.gc.materialdesign.views.ButtonRectangle>
+    </LinearLayout>
+
+    <com.gc.materialdesign.views.ButtonRectangle
+        android:id="@+id/clearButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#009688"
+        android:text="Clear Drawing!"
+        android:layout_gravity="center_horizontal|bottom" />
+
+    <com.gc.materialdesign.views.ButtonRectangle
+        android:id="@+id/colorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#009688"
+        android:text="Pick a color!"
+        android:layout_gravity="end|bottom" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sliderGroup"
+        android:layout_gravity="start|bottom"
+        android:layout_marginBottom="8dp">
+    <com.gc.materialdesign.views.Slider
+        android:id="@+id/strokeWidthSlider"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:background="#009688"
+        materialdesign:max="25"
+        materialdesign:min="0"
+        materialdesign:showNumberIndicator="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stroke Width"
+            android:layout_below="@id/strokeWidthSlider"
+            android:layout_marginLeft="20dp" />
+    </RelativeLayout>
+
+    <com.gc.materialdesign.views.ButtonFloat
+        android:id="@+id/sendButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="50dp"
+        android:background="#009688"
+        materialdesign:animate="true" >
+        <android.widget.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="{fa-paper-plane}"
+            android:textColor="#ffffff"
+            android:textSize="24sp"
+            android:layout_centerInParent="true" />
+        </com.gc.materialdesign.views.ButtonFloat>
+
+    <ImageView
+        android:id="@+id/test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dialog_background"
+        android:layout_gravity="center|bottom"/>
+
+</FrameLayout>
