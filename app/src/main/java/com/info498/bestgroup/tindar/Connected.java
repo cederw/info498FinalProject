@@ -1,5 +1,6 @@
 package com.info498.bestgroup.tindar;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -43,6 +44,14 @@ public class Connected extends ActionBarActivity {
         Typeface fontAwesome = Typeface.createFromAsset(getAssets(), "fonts/fontawesome.ttf");
 
         connectionText.setTypeface(robotoFontItalic);
+
+        vibrateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent vibrateIntent = new Intent(getApplicationContext(), Vibrate.class);
+                startActivity(vibrateIntent);
+            }
+        });
     }
 
     @Override

@@ -2,39 +2,53 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Alex\.gradle\caches\modules-2\files-2.1\com.joanzapata.android\android-iconify\1.0.9\27817b0ae26d4fa788711f1f75aaa45d76901722\android-iconify-1.0.9.jar"
+        jar="C:\Users\Ben\Desktop\Final Project Folder\info498FinalProject\app\build\intermediates\exploded-aar\com.github.navasmdc\MaterialDesign\1.5\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="27817b0ae26d4fa788711f1f75aaa45d76901722">
-        <dex dex="C:\Users\Alex\Github\info498FinalProject\app\build\intermediates\pre-dexed\debug\android-iconify-1.0.9-79e157033a872e8ceef9a2ed51084eb6de9c7285.jar" />
+        sha1="12b228574de7977e56e41cbfb385b1463bbdb41a">
+        <dex dex="C:\Users\Ben\Desktop\Final Project Folder\info498FinalProject\app\build\intermediates\pre-dexed\debug\classes-728c2c205561e97b018da7e2e277dd5f382565e3.jar" />
     </item>
     <item
-        jar="C:\Users\Alex\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="C:\Users\Alex\Github\info498FinalProject\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-dfedb165c506137786c321f0d597620b880ffed3.jar" />
-    </item>
-    <item
-        jar="C:\Users\Alex\Github\info498FinalProject\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="C:\Users\Alex\Github\info498FinalProject\app\build\intermediates\pre-dexed\debug\classes-ccc093bae7a895dd7ccaf421f62462c3a0e28221.jar" />
-    </item>
-    <item
-        jar="C:\Users\Alex\Github\info498FinalProject\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jar="C:\Users\Ben\Desktop\Final Project Folder\info498FinalProject\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="C:\Users\Alex\Github\info498FinalProject\app\build\intermediates\pre-dexed\debug\classes-65bda157de2de22b96626be919a37aa012cd1992.jar" />
+        <dex dex="C:\Users\Ben\Desktop\Final Project Folder\info498FinalProject\app\build\intermediates\pre-dexed\debug\classes-805ecce1b80056ad865e05f4a2042bd4f02d49d3.jar" />
     </item>
     <item
-        jar="C:\Users\Alex\Github\info498FinalProject\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jar="C:\Users\Ben\Desktop\Final Project Folder\info498FinalProject\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="C:\Users\Alex\Github\info498FinalProject\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-b04fe3447af34cd2e78bda3c196ea2ff099fcdab.jar" />
+        <dex dex="C:\Users\Ben\Desktop\Final Project Folder\info498FinalProject\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-d896d4067559d72a4a1658d0cedd038099b43a38.jar" />
+    </item>
+    <item
+        jar="C:\Users\Ben\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="C:\Users\Ben\Desktop\Final Project Folder\info498FinalProject\app\build\intermediates\pre-dexed\debug\library-2.4.0-0cfed5da0752758d8084d7f92482f874a6e16e57.jar" />
+    </item>
+    <item
+        jar="C:\Users\Ben\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="C:\Users\Ben\Desktop\Final Project Folder\info498FinalProject\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-e0f9dada2797889927d822bae2ff7aef1ad45a5a.jar" />
+    </item>
+    <item
+        jar="C:\Users\Ben\Desktop\Final Project Folder\info498FinalProject\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="C:\Users\Ben\Desktop\Final Project Folder\info498FinalProject\app\build\intermediates\pre-dexed\debug\classes-b61fa29328c0e75a54d4a79c487a132f3bfb3172.jar" />
+    </item>
+    <item
+        jar="C:\Users\Ben\.gradle\caches\modules-2\files-2.1\com.joanzapata.android\android-iconify\1.0.9\27817b0ae26d4fa788711f1f75aaa45d76901722\android-iconify-1.0.9.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="27817b0ae26d4fa788711f1f75aaa45d76901722">
+        <dex dex="C:\Users\Ben\Desktop\Final Project Folder\info498FinalProject\app\build\intermediates\pre-dexed\debug\android-iconify-1.0.9-99e716e02b781c30d988ad25efaba1561a0d37d8.jar" />
     </item>
 
 </items>

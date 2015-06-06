@@ -1,11 +1,14 @@
 package com.info498.bestgroup.tindar;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Vibrator;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
@@ -17,7 +20,8 @@ public class Vibrate extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vibrate);
 
-        Button vibrate = (Button) findViewById(R.id.vibrateButton);
+        final com.gc.materialdesign.views.ButtonRectangle vibrate = (com.gc.materialdesign.views.ButtonRectangle) findViewById(R.id.vibrateButton);
+
 
         vibrate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,6 +29,23 @@ public class Vibrate extends ActionBarActivity {
                 Vibrator v = (Vibrator) view.getContext().getSystemService(Context.VIBRATOR_SERVICE);
                 // Vibrate for 500 milliseconds
                 v.vibrate(500);
+            }
+        });
+
+        vibrate.setRippleSpeed(80f);
+        vibrate.setY(268);
+
+        vibrate.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    vibrate.setY(312);
+                    vibrate.setBackgroundColor(Color.parseColor("#008E80"));
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    vibrate.setY(300);
+                    vibrate.setBackgroundColor(Color.parseColor("#009688"));
+                }
+                return true;
             }
         });
     }
