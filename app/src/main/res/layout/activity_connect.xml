@@ -13,7 +13,6 @@
 
 
     <!-- testing -->
-    <!--
     <TextView
         android:id="@+id/bt_result"
         android:layout_width="wrap_content"
@@ -27,6 +26,5 @@
         android:layout_height="wrap_content"
         android:text="send"
         android:layout_below="@id/bt_result" />
-    -->
 
 </RelativeLayout>

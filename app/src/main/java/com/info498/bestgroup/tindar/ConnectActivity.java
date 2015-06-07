@@ -46,18 +46,17 @@ public class ConnectActivity extends ActionBarActivity {
         setContentView(R.layout.activity_connect);
 
         // testing
-        /*
         Button b = (Button) findViewById(R.id.button);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Tindar.ConnectedThread connectedThread = ((Tindar)getApplication()).connectedThread;
                 if (connectedThread.isAlive()) {
-                    byte[] word = "hey it works".getBytes();
+                    byte[] word = "0".getBytes();
                     connectedThread.write(word);
                 }
             }
         });
-        */
 
         // attach ArrayAdapter to ListView to show available device to connect with
         devices = new ArrayList<>();
@@ -109,7 +108,6 @@ public class ConnectActivity extends ActionBarActivity {
         }
     };
 
-    // @SuppressWarnings
     Handler connectionHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {

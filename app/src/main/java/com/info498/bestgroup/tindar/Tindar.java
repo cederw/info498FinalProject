@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -37,7 +38,7 @@ public class Tindar extends Application {
 
     }
 
-    public void makeThread( BluetoothSocket btSocket){
+    public void makeThread(BluetoothSocket btSocket) {
         connectedThread = new ConnectedThread(btSocket);
         connectedThread.start();
     }
@@ -49,8 +50,9 @@ public class Tindar extends Application {
             //TextView tv = (TextView) findViewById(R.id.bt_result);
             //tv.setText(msg.getData().getString("message"));
             if(msg.getData().getString("message").equals("0")){
-                Intent intent = new Intent(instance, Flash.class);
-                sendBroadcast(intent);
+                //Intent intent = new Intent(instance, Flash.class);
+                //sendBroadcast(intent);
+                Toast.makeText(getApplicationContext(), "received!", Toast.LENGTH_SHORT).show();
             }
         }
     };
@@ -60,7 +62,7 @@ public class Tindar extends Application {
     public class ConnectedThread extends Thread {
 
         private static final String CONNECTED_TAG = "ConnectedThread";
-        private static final int READ_MESSAGE = 42;
+        //private static final int READ_MESSAGE = 42;
         private final BluetoothSocket btSocket;
         private final InputStream btInputStream;
         private final OutputStream btOutputStream;

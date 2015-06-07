@@ -8,7 +8,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.joanzapata.android.iconify.Iconify;
+//import com.joanzapata.android.iconify.Iconify;
 
 import org.w3c.dom.Text;
 
