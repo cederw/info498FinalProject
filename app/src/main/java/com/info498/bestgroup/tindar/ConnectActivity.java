@@ -38,7 +38,6 @@ public class ConnectActivity extends ActionBarActivity {
     private BluetoothAdapter btAdapter;
     private ArrayAdapter<String> arrayAdapter;
     private ArrayList<String> devices; // used to populate ListView in UI
-    private ConnectedThread connectedThread; // thread for managing connection between two devices
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +49,7 @@ public class ConnectActivity extends ActionBarActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Tindar.ConnectedThread connectedThread = ((Tindar)getApplication()).connectedThread;
                 if (connectedThread.isAlive()) {
                     byte[] word = "hey it works".getBytes();
                     connectedThread.write(word);
@@ -195,8 +195,8 @@ public class ConnectActivity extends ActionBarActivity {
                         Log.i(ACCEPT_TAG, "Bluetooth connection accepted");
 
                         // manage connection to socket
-                        connectedThread = new ConnectedThread(btSocket);
-                        connectedThread.start();
+                        Tindar tindar = (Tindar)getApplication();
+                        tindar.makeThread(btSocket);
 
                         // close server socket (only want one connection)
                         btServerSocket.close();
@@ -260,8 +260,8 @@ public class ConnectActivity extends ActionBarActivity {
             Log.i(CONNECT_TAG, "Connected to socket");
 
             // manage connection to socket
-            connectedThread = new ConnectedThread(btSocket);
-            connectedThread.start();
+            Tindar tindar = (Tindar)getApplication();
+            tindar.makeThread(btSocket);
         }
 
         // manually close the connection to the bluetooth socket
@@ -270,75 +270,6 @@ public class ConnectActivity extends ActionBarActivity {
                 btSocket.close();
             } catch (IOException e) {
                 Log.e(CONNECT_TAG, "Could not close bluetooth socket");
-            }
-        }
-    }
-
-
-    // thread that manages writing output to and reading input from a bluetooth device
-    public class ConnectedThread extends Thread {
-
-        private static final String CONNECTED_TAG = "ConnectedThread";
-        private static final int READ_MESSAGE = 42;
-        private final BluetoothSocket btSocket;
-        private final InputStream btInputStream;
-        private final OutputStream btOutputStream;
-
-        public ConnectedThread(BluetoothSocket socket) {
-            btSocket = socket;
-            InputStream inputTemp = null;
-            OutputStream outputTemp = null;
-
-            try {
-                inputTemp = socket.getInputStream();
-                outputTemp = socket.getOutputStream();
-            } catch (IOException e) {
-                Log.e(CONNECTED_TAG, "Error getting input/output stream from bluetooth socket");
-            }
-
-            btInputStream = inputTemp;
-            btOutputStream = outputTemp;
-        }
-
-        @Override
-        public void run() {
-            Log.i(CONNECTED_TAG, "Running connection management thread");
-            byte[] buffer = new byte[1024];
-            int bytes;
-
-            while (true) {
-                try {
-                    bytes = btInputStream.read(buffer);
-
-                    // set up message to send to handler
-                    Message msg = connectionHandler.obtainMessage();
-                    Bundle msgBundle = new Bundle();
-                    msgBundle.putString("message", new String(buffer));
-                    msg.setData(msgBundle);
-                    msg.sendToTarget();
-                } catch (IOException e) {
-                    Log.e(CONNECTED_TAG, "Error reading from input stream");
-                    break;
-                }
-            }
-        }
-
-        // used to send data to the remote device
-        public void write(byte[] bytes) {
-            try {
-                Log.i(CONNECTED_TAG, "Attempting to write to socket output stream");
-                btOutputStream.write(bytes);
-            } catch (IOException e) {
-                Log.e(CONNECTED_TAG, "Error writing with output stream");
-            }
-        }
-
-        // manually close the connection to the bluetooth socket
-        public void cancel() {
-            try {
-                btSocket.close();
-            } catch (IOException e) {
-                Log.e(CONNECTED_TAG, "Could not close bluetooth socket");
             }
         }
     }
