@@ -9,50 +9,52 @@ import android.util.Log;
 
 
 /*
-
 Walter Ceder
-
  */
 public class Flash extends BroadcastReceiver {
-    private Camera cam;
-    public Flash() {
-    }
+    private static Camera cam;
+    public static boolean lock = false;
+
+    public Flash() {}
 
     @Override
     public void onReceive(Context context, Intent intent) {
         // TODO: This method is called when the BroadcastReceiver is receiving
         // an Intent broadcast.
         //throw new UnsupportedOperationException("Not yet implemented");
-        if(context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)&&context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)){
+        if(!lock){
+            lock = true;
+            if(context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)&&context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)){
 
-
-            cam = null;
-            try {
-              //  cam.release();
-                cam = Camera.open(); // attempt to get a Camera instance
-            }
-            catch (Exception e){
-                Log.i("CAM", "No camera");
-            }
-
-            Camera.Parameters params = cam.getParameters();
-            params.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
-            cam.setParameters(params);
-            cam.startPreview();
-            Log.i("CAM","Start?");
-            cam.autoFocus(new Camera.AutoFocusCallback() {
-                public void onAutoFocus(boolean success, Camera camera) {
-                }
-            });
-            new android.os.Handler().postDelayed(
-                    new Runnable() {
-                        public void run() {
-                            cam.stopPreview();
-                            Log.i("CAM","Stop?");
-                            cam.release();
+                cam = null;
+                try {
+                    //  cam.release();
+                    cam = Camera.open(); // attempt to get a Camera instance
+                    Camera.Parameters params = cam.getParameters();
+                    params.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+                    cam.setParameters(params);
+                    cam.startPreview();
+                    Log.i("CAM","Start?");
+                    cam.autoFocus(new Camera.AutoFocusCallback() {
+                        public void onAutoFocus(boolean success, Camera camera) {
                         }
-                    },
-                    300);
+                    });
+                    new android.os.Handler().postDelayed(
+                            new Runnable() {
+                                public void run() {
+                                    cam.stopPreview();
+                                    Log.i("CAM","Stop?");
+                                    cam.release();
+                                    lock = false;
+                                }
+                            },
+                            300);
+                }
+                catch (Exception e){
+                    Log.i("CAM", "No camera");
+                }
+
+
 //            try {
 //                wait(1000);
 //            } catch (InterruptedException e) {
@@ -62,8 +64,10 @@ public class Flash extends BroadcastReceiver {
 //
 //            cam.release();
 
-        } else{
-            //no flash
+            } else{
+                //no flash
+            }
         }
+
     }
 }
