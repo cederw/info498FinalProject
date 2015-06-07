@@ -67,12 +67,11 @@ public class Doodling extends Activity {
         views.add(undoRedoButtons);
 
         drawView.views = views;
-        drawView.d = (ImageView) findViewById(R.id.test);
         drawView.redoButton = redoButton;
         drawView.undoButton = undoButton;
 
-        strokeWidthSlider.setValue(5);
-        colorButton.setBackgroundColor(Color.BLUE);
+        strokeWidthSlider.setValue(20);
+        colorButton.setBackgroundColor(Color.parseColor("#AED581"));
         redoButton.setEnabled(false);
         undoButton.setEnabled(false);
 
