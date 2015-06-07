@@ -73,9 +73,20 @@ public class ConnectActivity extends ActionBarActivity {
                 String macAddress = deviceInfo[1];
 
                 // get remote bluetooth device using MAC address
-                BluetoothDevice device = btAdapter.getRemoteDevice(macAddress);
-                ConnectThread connectThread = new ConnectThread(device);
-                connectThread.start();
+                BluetoothDevice device = null;
+                if (btAdapter.checkBluetoothAddress(macAddress)) {
+                    try {
+                        device = btAdapter.getRemoteDevice(macAddress);
+                    } catch (IllegalArgumentException e) {
+                        Log.e(TAG, "Error getting remote device");
+                    }
+                }
+                if (device != null) {
+                    ConnectThread connectThread = new ConnectThread(device);
+                    connectThread.start();
+                } else {
+                    Log.e(TAG, "Error setting device. Could not start connection management thread.");
+                }
             }
         });
         deviceList.setAdapter(arrayAdapter);
@@ -108,14 +119,14 @@ public class ConnectActivity extends ActionBarActivity {
         }
     };
 
-    Handler connectionHandler = new Handler() {
+    /*Handler connectionHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             // testing
             //TextView tv = (TextView) findViewById(R.id.bt_result);
             //tv.setText(msg.getData().getString("message"));
         }
-    };
+    };*/
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

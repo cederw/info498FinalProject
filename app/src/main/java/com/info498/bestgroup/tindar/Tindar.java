@@ -48,11 +48,12 @@ public class Tindar extends Application {
             // testing
             //TextView tv = (TextView) findViewById(R.id.bt_result);
             //tv.setText(msg.getData().getString("message"));
-            if(msg.getData().getString("message").equals("0")){
-                //Intent intent = new Intent(instance, Flash.class);
-                //sendBroadcast(intent);
-                Toast.makeText(getApplicationContext(), "received!", Toast.LENGTH_SHORT).show();
-            }
+            //if(msg.getData().getString("message").equals("0")){
+
+                Intent intent = new Intent(instance, Flash.class);
+                sendBroadcast(intent);
+                //Toast.makeText(getApplicationContext(), msg.getData().getString("message"), Toast.LENGTH_LONG).show();
+            //}
         }
     };
 
