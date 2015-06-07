@@ -46,7 +46,6 @@ public class ConnectActivity extends ActionBarActivity {
         setContentView(R.layout.activity_connect);
 
         // testing
-        /*
         Button b = (Button) findViewById(R.id.button);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +56,6 @@ public class ConnectActivity extends ActionBarActivity {
                 }
             }
         });
-        */
 
         // attach ArrayAdapter to ListView to show available device to connect with
         devices = new ArrayList<>();
@@ -74,9 +72,20 @@ public class ConnectActivity extends ActionBarActivity {
                 String macAddress = deviceInfo[1];
 
                 // get remote bluetooth device using MAC address
-                BluetoothDevice device = btAdapter.getRemoteDevice(macAddress);
-                ConnectThread connectThread = new ConnectThread(device);
-                connectThread.start();
+                BluetoothDevice device = null;
+                if (btAdapter.checkBluetoothAddress(macAddress)) {
+                    try {
+                        device = btAdapter.getRemoteDevice(macAddress);
+                    } catch (IllegalArgumentException e) {
+                        Log.e(TAG, "Error getting remote device");
+                    }
+                }
+                if (device != null) {
+                    ConnectThread connectThread = new ConnectThread(device);
+                    connectThread.start();
+                } else {
+                    Log.e(TAG, "Error setting device. Could not start connection management thread.");
+                }
             }
         });
         deviceList.setAdapter(arrayAdapter);
@@ -114,8 +123,8 @@ public class ConnectActivity extends ActionBarActivity {
         @Override
         public void handleMessage(Message msg) {
             // testing
-            //TextView tv = (TextView) findViewById(R.id.bt_result);
-            //tv.setText(msg.getData().getString("message"));
+            TextView tv = (TextView) findViewById(R.id.bt_result);
+            tv.setText(msg.getData().getString("message"));
         }
     };
 
@@ -239,6 +248,7 @@ public class ConnectActivity extends ActionBarActivity {
                 btSocket.connect();
             } catch (IOException connectException) {
                 Log.e(CONNECT_TAG, "Error connecting to socket");
+                connectException.printStackTrace();
                 try {
                     btSocket.close();
                 } catch (IOException closeException) {

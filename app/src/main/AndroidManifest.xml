@@ -47,6 +47,10 @@
             android:name=".Doodling"
             android:label="@string/title_activity_doodling" >
         </activity>
+        <activity
+            android:name=".ConnectActivity"
+            android:label="ConnectActivity" >
+        </activity>
     </application>
 
 </manifest>
