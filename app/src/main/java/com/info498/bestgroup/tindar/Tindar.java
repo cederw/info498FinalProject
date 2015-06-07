@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Arrays;
 
 
 public class Tindar extends Application {
@@ -43,16 +45,14 @@ public class Tindar extends Application {
     Handler connectionHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            Log.i("connectionHandler", "you made it here at least");
-            // testing
-            //TextView tv = (TextView) findViewById(R.id.bt_result);
-            //tv.setText(msg.getData().getString("message"));
-            //if(msg.getData().getString("message").equals("0")){
-
-            Intent intent = new Intent(instance, Flash.class);
-            sendBroadcast(intent);
-            //Toast.makeText(getApplicationContext(), msg.getData().getString("message"), Toast.LENGTH_LONG).show();
-            //}
+            String intentMsg = msg.getData().getString("message");
+            if (intentMsg.contains("flash")) {
+                sendBroadcast(new Intent(instance, Flash.class));
+            } else if (intentMsg.contains("vibrate")) {
+                sendBroadcast(new Intent(instance, Vibrate.class));
+            } else if (intentMsg.contains("doodle")) {
+                //
+            }
         }
     };
 

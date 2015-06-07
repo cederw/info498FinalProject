@@ -51,7 +51,7 @@ public class ConnectActivity extends ActionBarActivity {
             public void onClick(View v) {
                 Tindar.ConnectedThread connectedThread = ((Tindar)getApplication()).connectedThread;
                 if (connectedThread.isAlive()) {
-                    byte[] word = "hey it works".getBytes();
+                    byte[] word = "HEY HEY LISTEN HEY LOOK".getBytes();
                     connectedThread.write(word);
                 }
             }
@@ -115,16 +115,6 @@ public class ConnectActivity extends ActionBarActivity {
                     arrayAdapter.notifyDataSetChanged();
                 }
             }
-        }
-    };
-
-    // @SuppressWarnings
-    Handler connectionHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            // testing
-            TextView tv = (TextView) findViewById(R.id.bt_result);
-            tv.setText(msg.getData().getString("message"));
         }
     };
 

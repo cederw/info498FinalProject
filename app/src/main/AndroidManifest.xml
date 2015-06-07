@@ -52,6 +52,12 @@
             android:name=".ConnectActivity"
             android:label="ConnectActivity" >
         </activity>
+
+        <receiver
+            android:name=".VibrateReceiver"
+            android:enabled="true"
+            android:exported="true" >
+        </receiver>
     </application>
 
 </manifest>
