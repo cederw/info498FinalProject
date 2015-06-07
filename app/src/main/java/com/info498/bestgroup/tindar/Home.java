@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewPropertyAnimator;
 import android.view.animation.Animation;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,7 +23,6 @@ public class Home extends Activity {
     TextView title;
     TextView tagline;
     TextView search;
-    ListView deviceList;
     com.gc.materialdesign.views.ButtonRectangle findButton;
     com.gc.materialdesign.views.ButtonRectangle stopButton;
     com.gc.materialdesign.views.ProgressBarCircularIndeterminate spinner;
@@ -42,7 +40,6 @@ public class Home extends Activity {
         title = (TextView) findViewById(R.id.title);
         tagline = (TextView) findViewById(R.id.tagline);
         search = (TextView) findViewById(R.id.search);
-        deviceList = (ListView) findViewById(R.id.deviceList);
         findButton = (com.gc.materialdesign.views.ButtonRectangle) findViewById(R.id.findButton);
         stopButton = (com.gc.materialdesign.views.ButtonRectangle) findViewById(R.id.stopButton);
         spinner = (com.gc.materialdesign.views.ProgressBarCircularIndeterminate) findViewById(R.id.spinner);
@@ -58,13 +55,8 @@ public class Home extends Activity {
             @Override
             public void onClick(View view) {
                 findButton.setVisibility(View.INVISIBLE);
-                title.setVisibility(View.INVISIBLE);
-                tagline.setVisibility(View.INVISIBLE);
-                deviceList.setVisibility(View.VISIBLE);
                 search.setVisibility(View.VISIBLE);
                 stopButton.setVisibility(View.VISIBLE);
-                spinner.setVisibility(View.VISIBLE);
-                spinner.bringToFront();
                 animating = true;
                 animateSearch();
             }
@@ -74,11 +66,8 @@ public class Home extends Activity {
             @Override
             public void onClick(View view) {
                 search.setVisibility(View.INVISIBLE);
-                title.setVisibility(View.VISIBLE);
-                tagline.setVisibility(View.VISIBLE);
-                deviceList.setVisibility(View.INVISIBLE);
                 stopButton.setVisibility(View.INVISIBLE);
-                spinner.setVisibility(View.INVISIBLE);
+                spinner.setVisibility(View.VISIBLE);
                 animating = false;
             }
         });
@@ -88,7 +77,7 @@ public class Home extends Activity {
         final float x = search.getX();
         final float y = search.getY();
 
-        oa.playSequentially(ObjectAnimator.ofFloat(search, "x", 150), // anim 1
+        oa.playSequentially(ObjectAnimator.ofFloat(search, "x", 50), // anim 1
                 ObjectAnimator.ofFloat(search, "y", 550), // anim 2
                 ObjectAnimator.ofFloat(search, "x", x), // anim 3
                 ObjectAnimator.ofFloat(search, "y", y)); // anim 4

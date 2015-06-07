@@ -10,6 +10,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.media.ThumbnailUtils;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -32,7 +33,6 @@ public class DrawView  extends View {
 
     ButtonRectangle undoButton;
     ButtonRectangle redoButton;
-    ImageView d;
 
     public Paint mPaint;
     public int width;
@@ -67,11 +67,8 @@ public class DrawView  extends View {
         mPaint.setStrokeJoin(Paint.Join.ROUND);
         mPaint.setStrokeCap(Paint.Cap.ROUND);
 
-        mPaint.setColor(Color.BLUE);
-        curColor = Color.BLUE;
-
-        mPaint.setStrokeWidth(5);
-        curWidth = 5;
+        setColor(Color.parseColor("#AED581"));
+        setWidth(20);
     }
     public void clearDrawing() {
         setDrawingCacheEnabled(false);
@@ -162,8 +159,12 @@ public class DrawView  extends View {
         invalidate();
         Bitmap whatTheUserDrewBitmap = getDrawingCache();
 
+        DisplayMetrics displayMetrics = getContext().getResources().getDisplayMetrics();
+        int width = displayMetrics.widthPixels;
+        int height = displayMetrics.heightPixels;
+
         whatTheUserDrewBitmap =
-                ThumbnailUtils.extractThumbnail(whatTheUserDrewBitmap, 1024, 1024);
+                ThumbnailUtils.extractThumbnail(whatTheUserDrewBitmap, width, height);
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         whatTheUserDrewBitmap.compress(Bitmap.CompressFormat.PNG, 0, baos);

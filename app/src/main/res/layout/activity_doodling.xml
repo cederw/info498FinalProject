@@ -64,6 +64,7 @@
         android:layout_height="wrap_content"
         android:background="#009688"
         android:text="Pick a color!"
+        android:layout_marginRight="5dp"
         android:layout_gravity="end|bottom" />
 
     <RelativeLayout
@@ -72,20 +73,20 @@
         android:id="@+id/sliderGroup"
         android:layout_gravity="start|bottom"
         android:layout_marginBottom="8dp">
-    <com.gc.materialdesign.views.Slider
-        android:id="@+id/strokeWidthSlider"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:background="#009688"
-        materialdesign:max="25"
-        materialdesign:min="0"
-        materialdesign:showNumberIndicator="true" />
+        <com.gc.materialdesign.views.Slider
+            android:id="@+id/strokeWidthSlider"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:background="#009688"
+            materialdesign:max="100"
+            materialdesign:min="0"
+            materialdesign:showNumberIndicator="true" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Stroke Width"
             android:layout_below="@id/strokeWidthSlider"
-            android:layout_marginLeft="20dp" />
+            android:layout_marginLeft="25dp" />
     </RelativeLayout>
 
     <com.gc.materialdesign.views.ButtonFloat
@@ -104,13 +105,6 @@
             android:textColor="#ffffff"
             android:textSize="24sp"
             android:layout_centerInParent="true" />
-        </com.gc.materialdesign.views.ButtonFloat>
-
-    <ImageView
-        android:id="@+id/test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/dialog_background"
-        android:layout_gravity="center|bottom"/>
+    </com.gc.materialdesign.views.ButtonFloat>
 
 </FrameLayout>
