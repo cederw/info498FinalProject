@@ -51,7 +51,7 @@ public class ConnectActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Tindar.ConnectedThread connectedThread = ((Tindar)getApplication()).connectedThread;
-                if (connectedThread.isAlive()) {
+                if (connectedThread != null) {
                     byte[] word = "0".getBytes();
                     connectedThread.write(word);
                 }
@@ -236,6 +236,7 @@ public class ConnectActivity extends ActionBarActivity {
             try {
                 btSocket.connect();
             } catch (IOException connectException) {
+                connectException.printStackTrace();
                 Log.e(CONNECT_TAG, "Error connecting to socket");
                 try {
                     btSocket.close();

@@ -13,9 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-/**
- * Created by iguest on 6/3/15.
- */
+
 public class Tindar extends Application {
 
     private static Tindar instance; // singleton
@@ -27,7 +25,7 @@ public class Tindar extends Application {
         if (instance == null) {
             instance = this;
         } else {
-            Log.e("Tindar", "There is an error beep boop. You tried to create more than 1 QuizDroid");
+            Log.e("Tindar", "There is an error beep boop. You tried to create more than one Tindar instance");
         }
 
     }
@@ -46,6 +44,7 @@ public class Tindar extends Application {
     Handler connectionHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
+            Log.i("connectionHandler", "you made it here at least");
             // testing
             //TextView tv = (TextView) findViewById(R.id.bt_result);
             //tv.setText(msg.getData().getString("message"));
