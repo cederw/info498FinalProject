@@ -145,6 +145,7 @@ public class Home extends Activity {
         deviceList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), "Attempting to connect...", Toast.LENGTH_SHORT).show();
                 // get MAC address from item string in list view
                 String[] deviceInfo = parent
                         .getItemAtPosition(position)
