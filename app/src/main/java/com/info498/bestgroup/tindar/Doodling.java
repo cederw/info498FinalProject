@@ -103,7 +103,7 @@ public class Doodling extends Activity {
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                drawView.save();
+                drawView.send();
             }
         });
 

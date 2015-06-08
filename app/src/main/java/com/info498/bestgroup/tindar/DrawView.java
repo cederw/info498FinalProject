@@ -155,7 +155,7 @@ public class DrawView  extends View {
         curWidth = width;
     }
 
-    public void save(){
+    public byte[] send(){
         invalidate();
         Bitmap whatTheUserDrewBitmap = getDrawingCache();
 
@@ -172,7 +172,7 @@ public class DrawView  extends View {
         byte[] yourByteArray;
         yourByteArray = baos.toByteArray();
 
-        Bitmap bmp = BitmapFactory.decodeByteArray(yourByteArray, 0, yourByteArray.length);
+        return yourByteArray;
     }
 
     private float mX, mY;
