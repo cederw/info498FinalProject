@@ -10,6 +10,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.media.ThumbnailUtils;
 import android.util.AttributeSet;
+import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -69,6 +70,8 @@ public class DrawView  extends View {
 
         setColor(Color.parseColor("#AED581"));
         setWidth(20);
+        width = 100;
+        height = 100;
     }
     public void clearDrawing() {
         setDrawingCacheEnabled(false);
@@ -85,8 +88,8 @@ public class DrawView  extends View {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        width = w;
-        height = h;
+        width = 100;
+        height = 100;
         mBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
         mCanvas = new Canvas(mBitmap);
     }
@@ -154,25 +157,31 @@ public class DrawView  extends View {
         curWidth = width;
     }
 
-    public byte[] send(){
+    public String send(){
         invalidate();
-        Bitmap whatTheUserDrewBitmap = getDrawingCache();
+        Bitmap bitmap = getDrawingCache();
+        ByteArrayOutputStream baos=new  ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG,100, baos);
+        byte [] b=baos.toByteArray();
+        String temp= Base64.encodeToString(b, Base64.DEFAULT);
+        return temp;
 
-        DisplayMetrics displayMetrics = getContext().getResources().getDisplayMetrics();
-        int width = displayMetrics.widthPixels;
-        int height = displayMetrics.heightPixels;
-
-        whatTheUserDrewBitmap =
-                ThumbnailUtils.extractThumbnail(whatTheUserDrewBitmap, width, height);
-
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        whatTheUserDrewBitmap.compress(Bitmap.CompressFormat.PNG, 0, baos);
-
-        byte[] yourByteArray;
-        yourByteArray = baos.toByteArray();
-
-        return yourByteArray;
+//        DisplayMetrics displayMetrics = getContext().getResources().getDisplayMetrics();
+//        int width = displayMetrics.widthPixels;
+//        int height = displayMetrics.heightPixels;
+//
+//        whatTheUserDrewBitmap =
+//                ThumbnailUtils.extractThumbnail(whatTheUserDrewBitmap, width, height);
+//
+//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//        whatTheUserDrewBitmap.compress(Bitmap.CompressFormat.PNG, 0, baos);
+//
+//        byte[] yourByteArray;
+//        yourByteArray = baos.toByteArray();
+//
+//        return yourByteArray;
     }
+
 
     private float mX, mY;
     private static final float TOUCH_TOLERANCE = 4;

@@ -2,6 +2,7 @@ package com.info498.bestgroup.tindar;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.gc.materialdesign.views.ButtonFloat;
 import com.gc.materialdesign.views.ButtonRectangle;
@@ -100,10 +102,36 @@ public class Doodling extends Activity {
             }
         });
 
+
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                drawView.send();
+                Tindar.ConnectedThread connectedThread = ((Tindar) getApplication()).connectedThread;
+                if (connectedThread != null) {
+                    String temp = drawView.send();
+                    Log.i("Doodle", "doodle "+ temp );
+
+                    int index = 0;
+                        while(index<temp.length()){
+                            String temp2;
+                            if(index+100>=temp.length()){
+                                temp2 = temp.substring(index,temp.length());
+                            } else{
+                                temp2 = temp.substring(index,index+100);
+                            }
+
+                            connectedThread.write(("dood " + temp2).getBytes());
+                            index +=100;
+                        }
+                    connectedThread.write(("doodle " ).getBytes());
+
+
+
+
+                } else {
+                    Toast.makeText(getApplicationContext(), "Bluetooth connection lost", Toast.LENGTH_LONG).show();
+                }
+
             }
         });
 
