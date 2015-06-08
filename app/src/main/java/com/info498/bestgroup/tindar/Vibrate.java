@@ -1,9 +1,15 @@
 package com.info498.bestgroup.tindar;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Vibrator;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +23,7 @@ import com.gc.materialdesign.views.Slider;
 
 public class Vibrate extends Activity {
 
-    private int sliderCount = 2;
+    private int vibrateTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +32,7 @@ public class Vibrate extends Activity {
         Slider slider = (Slider) findViewById(R.id.vibrateSlider);
 
         slider.setValue(2);
+        vibrateTime = 2;
 
         Typeface robotoFont = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Bold.ttf");
 
@@ -35,7 +42,7 @@ public class Vibrate extends Activity {
         slider.setOnValueChangedListener(new Slider.OnValueChangedListener() {
             @Override
             public void onValueChanged(int i) {
-                sliderCount = i;
+                vibrateTime = i;
             }
         });
 
@@ -47,7 +54,8 @@ public class Vibrate extends Activity {
             public void onClick(View view) {
                 Tindar.ConnectedThread connectedThread = ((Tindar) getApplication()).connectedThread;
                 if (connectedThread != null) {
-                    connectedThread.write("vibrate".getBytes());
+                    Log.i("Vibrate", "vibrate " + vibrateTime);
+                    connectedThread.write(("vibrate " + vibrateTime).getBytes());
                 } else {
                     Toast.makeText(getApplicationContext(), "Bluetooth connection lost", Toast.LENGTH_LONG).show();
                 }
