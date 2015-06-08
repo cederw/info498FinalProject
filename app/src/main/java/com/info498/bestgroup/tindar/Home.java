@@ -94,6 +94,8 @@ public class Home extends Activity {
                 animating = false;
             }
         });
+        IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+        registerReceiver(discoveryReceiver, filter);
     }
 
     public void animateSearch(){
@@ -171,8 +173,6 @@ public class Home extends Activity {
             Intent discoverableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
             startActivityForResult(discoverableIntent, REQUEST_ENABLE_DISCOVERABLE);
         }
-        IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
-        registerReceiver(discoveryReceiver, filter);
     }
 
     private final BroadcastReceiver discoveryReceiver = new BroadcastReceiver() {
@@ -224,7 +224,9 @@ public class Home extends Activity {
         super.onDestroy();
 
         unregisterReceiver(discoveryReceiver);
-        btAdapter.cancelDiscovery();
+        if (btAdapter != null) {
+            btAdapter.cancelDiscovery();
+        }
     }
 
 
