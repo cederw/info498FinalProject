@@ -111,7 +111,6 @@ public class DrawView  extends View {
         redoButton.setEnabled(true);
 
         onSizeChanged(width, height, width, height);
-        invalidate();
 
         setDrawingCacheEnabled(true);
         drawStrokes(strokes);

@@ -40,6 +40,7 @@ public class Home extends Activity {
     TextView title;
     TextView tagline;
     TextView search;
+    TextView foundBluetooth;
     ListView deviceList;
     ButtonRectangle findButton;
     ButtonRectangle stopButton;
@@ -53,15 +54,15 @@ public class Home extends Activity {
     private static final UUID APP_UUID = UUID.fromString("092651a2-47ef-41b2-8ffd-e3ad2c08a9e6");
     private static final int REQUEST_ENABLE_DISCOVERABLE = 420;
     private BluetoothAdapter btAdapter;
-    private ArrayAdapter<String> arrayAdapter;
+    CustomArrayAdapter arrayAdapter;
     private ArrayList<String> devices; // used to populate ListView in UI
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
-        startActivity(new Intent(Home.this, Doodling.class));
+//
+//        startActivity(new Intent(Home.this, Doodling.class));
 
         Typeface robotoFont = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Bold.ttf");
         Typeface fontAwesome = Typeface.createFromAsset(getAssets(), "fonts/fontawesome.ttf");
@@ -69,6 +70,7 @@ public class Home extends Activity {
         title = (TextView) findViewById(R.id.title);
         tagline = (TextView) findViewById(R.id.tagline);
         search = (TextView) findViewById(R.id.search);
+        foundBluetooth = (TextView) findViewById(R.id.foundBluetooth);
         deviceList = (ListView) findViewById(R.id.devices);
         findButton = (ButtonRectangle) findViewById(R.id.findButton);
         stopButton = (ButtonRectangle) findViewById(R.id.stopButton);
@@ -76,6 +78,7 @@ public class Home extends Activity {
 
         title.setTypeface(robotoFont);
         tagline.setTypeface(robotoFont);
+        foundBluetooth.setTypeface(robotoFont);
         search.setTypeface(fontAwesome);
 
         findButton.setRippleSpeed(80f);
@@ -144,8 +147,7 @@ public class Home extends Activity {
     private void startBluetoothService() {
         // attach ArrayAdapter to ListView to show available device to connect with
         devices = new ArrayList<>();
-        arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,
-                android.R.id.text1, devices);
+        arrayAdapter = new CustomArrayAdapter(this, devices);
         //ListView deviceList = (ListView) findViewById(R.id.devices);
         deviceList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
