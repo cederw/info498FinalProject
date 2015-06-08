@@ -19,6 +19,7 @@
         android:textSize="8dp"
         android:gravity="center_horizontal"
         android:layout_alignParentTop="true"
+        materialdesign:rippleColor="#000000"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="120dp" />
@@ -28,26 +29,25 @@
         android:layout_height="wrap_content"
         android:id="@+id/sliderGroup"
         android:layout_gravity="start|bottom"
+        android:layout_marginTop="50dp"
         android:layout_below="@+id/flashlightButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="75dp">
+        android:layout_centerHorizontal="true">
         <com.gc.materialdesign.views.Slider
             android:id="@+id/flashlightSlider"
-            android:layout_width="400dp"
+            android:layout_width="275dp"
             android:layout_height="wrap_content"
             android:background="#009688"
             materialdesign:max="10"
             materialdesign:min="0"
-            materialdesign:showNumberIndicator="true" />
+            materialdesign:showNumberIndicator="true"
+            android:layout_centerInParent="true" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="How many times do you want to flash?"
             android:id="@+id/flashText"
             android:layout_below="@id/flashlightSlider"
-            android:textSize="16dp"
-            android:layout_marginLeft="25dp" />
+            android:textSize="16sp" />
     </RelativeLayout>
 
 
