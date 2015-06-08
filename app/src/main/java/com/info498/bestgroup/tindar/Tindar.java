@@ -57,7 +57,10 @@ public class Tindar extends Application {
             if (intentMsg.contains("flash")) {
                 sendBroadcast(new Intent(instance, Flash.class));
             } else if (intentMsg.contains("vibrate")) {
-                sendBroadcast(new Intent(instance, VibrateReceiver.class));
+                Intent vibrate = new Intent(instance, VibrateReceiver.class);
+                int vibrateTime = Integer.parseInt(intentMsg.split(" ")[1].substring(0, 1));
+                vibrate.putExtra("vibrateTime", vibrateTime);
+                sendBroadcast(vibrate);
             } else if (intentMsg.contains("doodle")) {
                 // call doodling receiver
             }
