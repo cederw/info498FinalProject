@@ -21,7 +21,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="&quot;Anything is possible. Tindar.&quot;"
+        android:text="&quot;Tindar - Empowering People&quot;"
         android:id="@+id/tagline"
         android:layout_below="@+id/title"
         android:layout_centerHorizontal="true"
@@ -51,7 +51,7 @@
         android:textSize="42dp"
         android:textIsSelectable="false"
         android:visibility="invisible"
-        android:layout_above="@+id/findButton"
+        android:layout_above="@+id/stopButton"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -80,23 +80,26 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Found Bluetooth Connections:"
-        android:textSize="18dp"
+        android:text="Bluetooth Connections:"
+        android:textSize="23sp"
+        android:visibility="invisible"
         android:id="@+id/foundBluetooth"
         android:layout_below="@+id/tagline"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="48dp" />
 
     <ListView
         android:id="@+id/devices"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/findButton"
-        android:layout_alignStart="@+id/findButton"
         android:layout_below="@+id/foundBluetooth"
-        android:layout_toStartOf="@+id/search"
-        android:layout_alignRight="@+id/findButton"
-        android:layout_alignEnd="@+id/findButton">
+        android:layout_alignRight="@+id/stopButton"
+        android:layout_alignEnd="@+id/stopButton"
+        android:layout_alignLeft="@+id/stopButton"
+        android:layout_alignStart="@+id/stopButton"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_above="@+id/search">
     </ListView>
 
 </RelativeLayout>

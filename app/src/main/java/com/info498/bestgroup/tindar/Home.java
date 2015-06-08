@@ -61,7 +61,7 @@ public class Home extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        
+
         Typeface robotoFont = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Bold.ttf");
         Typeface fontAwesome = Typeface.createFromAsset(getAssets(), "fonts/fontawesome.ttf");
 
@@ -86,6 +86,7 @@ public class Home extends Activity {
             @Override
             public void onClick(View view) {
                 findButton.setVisibility(View.INVISIBLE);
+                foundBluetooth.setVisibility(View.VISIBLE);
                 search.setVisibility(View.VISIBLE);
                 stopButton.setVisibility(View.VISIBLE);
                 deviceList.setVisibility(View.VISIBLE);
@@ -99,6 +100,7 @@ public class Home extends Activity {
             @Override
             public void onClick(View view) {
                 search.setVisibility(View.INVISIBLE);
+                foundBluetooth.setVisibility(View.INVISIBLE);
                 stopButton.setVisibility(View.INVISIBLE);
                 spinner.setVisibility(View.VISIBLE);
                 deviceList.setVisibility(View.INVISIBLE);
@@ -146,7 +148,17 @@ public class Home extends Activity {
         // attach ArrayAdapter to ListView to show available device to connect with
         devices = new ArrayList<>();
         arrayAdapter = new CustomArrayAdapter(this, devices);
-        //ListView deviceList = (ListView) findViewById(R.id.devices);
+
+        //testing
+        devices.add("Name: Placeholder name \r\nBluetooth: F4.F9.51.85.23.66");
+        devices.add("Name: Placeholder name \r\nBluetooth: F4.F9.51.85.23.66");
+        devices.add("Name: Placeholder name \r\nBluetooth: F4.F9.51.85.23.66");
+        devices.add("Name: Placeholder name \r\nBluetooth: F4.F9.51.85.23.66");
+        devices.add("Name: Placeholder name \r\nBluetooth: F4.F9.51.85.23.66");
+        devices.add("Name: Placeholder name \r\nBluetooth: F4.F9.51.85.23.66");
+        devices.add("Name: Placeholder name \r\nBluetooth: F4.F9.51.85.23.66");
+        arrayAdapter.notifyDataSetChanged();
+
         deviceList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
