@@ -43,7 +43,7 @@ public class Home extends Activity {
     boolean animating = false;
 
     // bluetooth variables
-    private static final String TAG = "HomeActivity";
+    private static final String TAG = "Home";
     private static final String SERVICE_NAME = "Tindar";
     private static final UUID APP_UUID = UUID.fromString("092651a2-47ef-41b2-8ffd-e3ad2c08a9e6");
     private static final int REQUEST_ENABLE_DISCOVERABLE = 420;
