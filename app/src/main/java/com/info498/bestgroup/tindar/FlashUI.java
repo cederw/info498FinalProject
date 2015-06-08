@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -44,10 +47,16 @@ public class FlashUI extends Activity {
             }
         });
 
+        final Animation animation = new AlphaAnimation(1, 0); // Change alpha from fully visible to invisible
+        animation.setDuration(275); // duration - half a second
+        animation.setInterpolator(new LinearInterpolator()); // do not alter animation rate
+        animation.setRepeatCount(5);
+        animation.setRepeatMode(Animation.REVERSE); // Reverse animation at the end so the button will fade back in
 
         flashButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                flashButton.startAnimation(animation);
                 for (int i = 1; i <= sliderCount; i++) {
                     new android.os.Handler().postDelayed(
                             new Runnable() {
