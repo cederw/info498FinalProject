@@ -20,26 +20,10 @@ public class Vibrate extends Activity {
         vibrate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Tindar.ConnectedThread connectedThread = ((Tindar)getApplication()).connectedThread;
+                Tindar.ConnectedThread connectedThread = ((Tindar) getApplication()).connectedThread;
                 connectedThread.write("vibrate".getBytes());
             }
         });
-
         vibrate.setRippleSpeed(80f);
-        vibrate.setY(268);
-
-        vibrate.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    vibrate.setY(312);
-                    vibrate.setBackgroundColor(Color.parseColor("#008E80"));
-                } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    vibrate.setY(300);
-                    vibrate.setBackgroundColor(Color.parseColor("#009688"));
-                }
-                return true;
-            }
-        });
     }
 }
