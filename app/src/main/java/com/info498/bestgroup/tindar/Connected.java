@@ -31,12 +31,10 @@ public class Connected extends ActionBarActivity {
         vibrateButton = (com.gc.materialdesign.views.ButtonRectangle) findViewById(R.id.vibrateButton);
         flashlightButton = (com.gc.materialdesign.views.ButtonRectangle) findViewById(R.id.flashlightButton);
         doodleButton = (com.gc.materialdesign.views.ButtonRectangle) findViewById(R.id.doodleButton);
-        optionalButton2 = (com.gc.materialdesign.views.ButtonRectangle) findViewById(R.id.optionalButton2);
 
         vibrateButton.setRippleSpeed(80f);
         flashlightButton.setRippleSpeed(80f);
         doodleButton.setRippleSpeed(80f);
-        optionalButton2.setRippleSpeed(80f);
 
 
         Typeface robotoFont = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Bold.ttf");
