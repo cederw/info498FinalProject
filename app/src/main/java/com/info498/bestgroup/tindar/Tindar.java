@@ -3,12 +3,15 @@ package com.info498.bestgroup.tindar;
 import android.app.Application;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -40,6 +43,11 @@ public class Tindar extends Application {
     public void makeThread(BluetoothSocket btSocket) {
         connectedThread = new ConnectedThread(btSocket);
         connectedThread.start();
+    }
+
+    public Bitmap convertToPNG(byte[] byteArray){
+        Bitmap bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+        return bmp;
     }
 
     Handler connectionHandler = new Handler() {
