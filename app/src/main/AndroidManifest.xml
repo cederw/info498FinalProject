@@ -58,6 +58,11 @@
             android:enabled="true"
             android:exported="true" >
         </receiver>
+
+        <activity
+            android:name=".FlashUI"
+            android:label="@string/title_activity_flash_ui" >
+        </activity>
     </application>
 
 </manifest>
