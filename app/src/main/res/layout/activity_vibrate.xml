@@ -28,17 +28,16 @@
         android:layout_height="wrap_content"
         android:id="@+id/sliderGroup"
         android:layout_gravity="start|bottom"
+        android:layout_marginTop="50dp"
         android:layout_below="@+id/vibrateButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="75dp">
+        android:layout_centerHorizontal="true">
         <com.gc.materialdesign.views.Slider
             android:id="@+id/vibrateSlider"
-            android:layout_width="400dp"
+            android:layout_width="275dp"
             android:layout_height="wrap_content"
             android:background="#009688"
             materialdesign:max="9"
-            materialdesign:min="1"
+            materialdesign:min="0"
             materialdesign:showNumberIndicator="true" />
         <TextView
             android:layout_width="wrap_content"
@@ -46,8 +45,7 @@
             android:text="How many seconds do you want to vibrate?"
             android:id="@+id/vibrateText"
             android:layout_below="@id/vibrateSlider"
-            android:textSize="14dp"
-            android:layout_marginLeft="25dp" />
+            android:textSize="14dp" />
     </RelativeLayout>
 
 
