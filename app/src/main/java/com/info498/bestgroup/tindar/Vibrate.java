@@ -1,19 +1,13 @@
 package com.info498.bestgroup.tindar;
 
-import android.content.Context;
+import android.app.Activity;
 import android.graphics.Color;
-import android.graphics.Typeface;
-import android.os.Vibrator;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 
 
-public class Vibrate extends ActionBarActivity {
+public class Vibrate extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +20,8 @@ public class Vibrate extends ActionBarActivity {
         vibrate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Vibrator v = (Vibrator) view.getContext().getSystemService(Context.VIBRATOR_SERVICE);
-                // Vibrate for 500 milliseconds
-                v.vibrate(500);
+                Tindar.ConnectedThread connectedThread = ((Tindar)getApplication()).connectedThread;
+                connectedThread.write("vibrate".getBytes());
             }
         });
 
@@ -48,27 +41,5 @@ public class Vibrate extends ActionBarActivity {
                 return true;
             }
         });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_vibrate, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }
