@@ -28,6 +28,7 @@ import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -36,6 +37,7 @@ public class Home extends Activity {
     TextView title;
     TextView tagline;
     TextView search;
+    ListView deviceList;
     com.gc.materialdesign.views.ButtonRectangle findButton;
     com.gc.materialdesign.views.ButtonRectangle stopButton;
     com.gc.materialdesign.views.ProgressBarCircularIndeterminate spinner;
@@ -62,6 +64,7 @@ public class Home extends Activity {
         title = (TextView) findViewById(R.id.title);
         tagline = (TextView) findViewById(R.id.tagline);
         search = (TextView) findViewById(R.id.search);
+        deviceList = (ListView) findViewById(R.id.devices);
         findButton = (com.gc.materialdesign.views.ButtonRectangle) findViewById(R.id.findButton);
         stopButton = (com.gc.materialdesign.views.ButtonRectangle) findViewById(R.id.stopButton);
         spinner = (com.gc.materialdesign.views.ProgressBarCircularIndeterminate) findViewById(R.id.spinner);
@@ -79,6 +82,7 @@ public class Home extends Activity {
                 findButton.setVisibility(View.INVISIBLE);
                 search.setVisibility(View.VISIBLE);
                 stopButton.setVisibility(View.VISIBLE);
+                deviceList.setVisibility(View.VISIBLE);
                 animating = true;
                 animateSearch();
                 startBluetoothService();
@@ -91,6 +95,7 @@ public class Home extends Activity {
                 search.setVisibility(View.INVISIBLE);
                 stopButton.setVisibility(View.INVISIBLE);
                 spinner.setVisibility(View.VISIBLE);
+                deviceList.setVisibility(View.INVISIBLE);
                 animating = false;
             }
         });
@@ -136,7 +141,7 @@ public class Home extends Activity {
         devices = new ArrayList<>();
         arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,
                 android.R.id.text1, devices);
-        ListView deviceList = (ListView) findViewById(R.id.devices);
+        //ListView deviceList = (ListView) findViewById(R.id.devices);
         deviceList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

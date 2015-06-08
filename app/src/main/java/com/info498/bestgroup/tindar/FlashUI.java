@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class FlashUI extends Activity {
 
-    private int sliderCount;
+    private int sliderCount = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,7 @@ public class FlashUI extends Activity {
         flashButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for (int i = 1; i <= sliderCount; i++) {
+                //for (int i = 1; i <= sliderCount; i++) {
                     new android.os.Handler().postDelayed(
                             new Runnable() {
                                 public void run() {
@@ -41,8 +41,8 @@ public class FlashUI extends Activity {
                                     }
                                 }
                             },
-                            i * 1000);
-                }
+                            1000);//i * 1000);
+                //}
             }
         });
     }
