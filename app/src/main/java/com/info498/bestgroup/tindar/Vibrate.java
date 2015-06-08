@@ -12,6 +12,8 @@ import android.os.Vibrator;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -48,10 +50,13 @@ public class Vibrate extends Activity {
 
         final ButtonRectangle vibrateButton = (ButtonRectangle) findViewById(R.id.vibrateButton);
 
+        final Animation a = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.rotate);
 
         vibrateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                vibrateButton.startAnimation(a);
                 Tindar.ConnectedThread connectedThread = ((Tindar) getApplication()).connectedThread;
                 if (connectedThread != null) {
                     Log.i("Vibrate", "vibrate " + vibrateTime);
