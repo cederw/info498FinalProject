@@ -44,8 +44,14 @@ public class Connected extends Activity {
         vibrateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent vibrateIntent = new Intent(getApplicationContext(), Vibrate.class);
-                startActivity(vibrateIntent);
+                startActivity(new Intent(Connected.this, FlashUI.class));
+            }
+        });
+
+        flashlightButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Connected.this, FlashUI.class));
             }
         });
     }
