@@ -33,7 +33,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="75dp">
         <com.gc.materialdesign.views.Slider
-            android:id="@+id/strokeWidthSlider"
+            android:id="@+id/flashlightSlider"
             android:layout_width="400dp"
             android:layout_height="wrap_content"
             android:background="#009688"
@@ -44,7 +44,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="How many times do you want to flash?"
-            android:layout_below="@id/strokeWidthSlider"
+            android:id="@+id/flashText"
+            android:layout_below="@id/flashlightSlider"
             android:textSize="16dp"
             android:layout_marginLeft="25dp" />
     </RelativeLayout>
