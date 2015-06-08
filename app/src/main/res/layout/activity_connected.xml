@@ -20,10 +20,10 @@
 
     <com.gc.materialdesign.views.ButtonRectangle
         android:layout_width="fill_parent"
-        android:layout_height="75dp"
+        android:layout_height="100dp"
         android:text="Vibrate"
         android:id="@+id/vibrateButton"
-        android:textSize="13sp"
+        android:textSize="14sp"
         android:textColor="#EEEEEE"
         android:background="#009688"
         android:layout_marginTop="15dp"
@@ -33,42 +33,42 @@
             android:layout_height="fill_parent"
             android:text="{fa-mobile}"
             android:id="@+id/test4"
-            android:textSize="45dp"
+            android:textSize="55dp"
             android:textColor="#EEEEEE"
-            android:paddingLeft="40dp"
-            android:paddingTop="10dp"/>
+            android:paddingLeft="30dp"
+            android:paddingTop="17dp"/>
     </com.gc.materialdesign.views.ButtonRectangle>
 
     <com.gc.materialdesign.views.ButtonRectangle
         android:layout_width="fill_parent"
-        android:layout_height="75dp"
+        android:layout_height="100dp"
         android:text="Flashlight"
         android:id="@+id/flashlightButton"
-        android:textSize="13sp"
+        android:textSize="14sp"
         android:textColor="#EEEEEE"
         android:background="#009688"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="30dp"
         android:layout_below="@+id/vibrateButton">
         <android.widget.IconTextView
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:text="{fa-lightbulb-o}"
             android:id="@+id/test3"
-            android:textSize="40dp"
+            android:textSize="45dp"
             android:textColor="#EEEEEE"
-            android:paddingLeft="40dp"
-            android:paddingTop="13dp"/>
+            android:paddingLeft="30dp"
+            android:paddingTop="20dp"/>
     </com.gc.materialdesign.views.ButtonRectangle>
 
     <com.gc.materialdesign.views.ButtonRectangle
         android:layout_width="fill_parent"
-        android:layout_height="75dp"
+        android:layout_height="100dp"
         android:text="Doodle"
         android:id="@+id/doodleButton"
         android:textColor="#EEEEEE"
         android:background="#009688"
-        android:textSize="14sp"
-        android:layout_marginTop="15dp"
+        android:textSize="15sp"
+        android:layout_marginTop="30dp"
         android:layout_below="@+id/flashlightButton"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -79,34 +79,10 @@
             android:layout_height="fill_parent"
             android:text="{fa-paint-brush}"
             android:id="@+id/test5"
-            android:textSize="32dp"
+            android:textSize="36dp"
             android:textColor="#EEEEEE"
-            android:paddingLeft="40dp"
-            android:paddingTop="18dp"/>
+            android:paddingLeft="30dp"
+            android:paddingTop="28dp"/>
     </com.gc.materialdesign.views.ButtonRectangle>
-
-    <com.gc.materialdesign.views.ButtonRectangle
-        android:layout_width="fill_parent"
-        android:layout_height="75dp"
-        android:text="OPTIONAL"
-        android:id="@+id/optionalButton2"
-        android:textSize="13sp"
-        android:textColor="#EEEEEE"
-        android:background="#009688"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/doodleButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" >
-        <android.widget.IconTextView
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:text="{fa-question}"
-            android:id="@+id/test1"
-            android:textSize="40dp"
-            android:textColor="#EEEEEE"
-            android:paddingLeft="40dp"
-            android:paddingRight="50dp"
-            android:paddingTop="12dp"/>
-        </com.gc.materialdesign.views.ButtonRectangle>
 
 </RelativeLayout>
