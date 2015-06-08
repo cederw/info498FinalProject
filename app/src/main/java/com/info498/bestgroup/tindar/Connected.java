@@ -44,7 +44,7 @@ public class Connected extends Activity {
         vibrateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Connected.this, FlashUI.class));
+                startActivity(new Intent(Connected.this, Vibrate.class));
             }
         });
 
@@ -52,6 +52,13 @@ public class Connected extends Activity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Connected.this, FlashUI.class));
+            }
+        });
+
+        doodleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Connected.this, Doodling.class));
             }
         });
     }

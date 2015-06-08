@@ -46,7 +46,6 @@ public class Tindar extends Application {
         @Override
         public void handleMessage(Message msg) {
             String intentMsg = msg.getData().getString("message");
-            Toast.makeText(getApplicationContext(), intentMsg, Toast.LENGTH_LONG).show();
             if (intentMsg.contains("flash")) {
                 sendBroadcast(new Intent(instance, Flash.class));
             } else if (intentMsg.contains("vibrate")) {

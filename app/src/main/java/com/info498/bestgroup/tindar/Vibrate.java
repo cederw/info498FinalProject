@@ -6,9 +6,12 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 
 public class Vibrate extends Activity {
+
+    private int sliderCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +26,11 @@ public class Vibrate extends Activity {
             @Override
             public void onClick(View view) {
                 Tindar.ConnectedThread connectedThread = ((Tindar) getApplication()).connectedThread;
-                connectedThread.write("vibrate".getBytes());
+                if (connectedThread != null) {
+                    connectedThread.write("vibrate".getBytes());
+                } else {
+                    Toast.makeText(getApplicationContext(), "Bluetooth connection lost", Toast.LENGTH_LONG).show();
+                }
             }
         });
         vibrate.setRippleSpeed(80f);
