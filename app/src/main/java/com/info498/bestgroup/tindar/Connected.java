@@ -52,6 +52,14 @@ public class Connected extends ActionBarActivity {
                 startActivity(vibrateIntent);
             }
         });
+
+        flashlightButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent vibrateIntent = new Intent(getApplicationContext(), FlashUI.class);
+                startActivity(vibrateIntent);
+            }
+        });
     }
 
     @Override

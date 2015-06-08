@@ -33,21 +33,6 @@ public class Vibrate extends ActionBarActivity {
         });
 
         vibrate.setRippleSpeed(80f);
-        vibrate.setY(268);
-
-        vibrate.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    vibrate.setY(312);
-                    vibrate.setBackgroundColor(Color.parseColor("#008E80"));
-                } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    vibrate.setY(300);
-                    vibrate.setBackgroundColor(Color.parseColor("#009688"));
-                }
-                return true;
-            }
-        });
     }
 
     @Override
@@ -55,20 +40,5 @@ public class Vibrate extends ActionBarActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_vibrate, menu);
         return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }

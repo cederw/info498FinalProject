@@ -46,14 +46,16 @@ public class ConnectActivity extends ActionBarActivity {
 
         // testing
         Button b = (Button) findViewById(R.id.button);
+        final Intent intent = new Intent(this, Connected.class);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Tindar.ConnectedThread connectedThread = ((Tindar)getApplication()).connectedThread;
-                if (connectedThread.isAlive()) {
-                    byte[] word = "hey it works".getBytes();
-                    connectedThread.write(word);
-                }
+                startActivity(intent);
+//                Tindar.ConnectedThread connectedThread = ((Tindar)getApplication()).connectedThread;
+//                if (connectedThread.isAlive()) {
+//                    byte[] word = "hey it works".getBytes();
+//                    connectedThread.write(word);
+//                }
             }
         });
 

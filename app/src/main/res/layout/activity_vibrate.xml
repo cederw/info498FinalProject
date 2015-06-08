@@ -1,5 +1,6 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -7,16 +8,33 @@
     tools:context="com.info498.bestgroup.tindar.Vibrate"
     android:id="@+id/resourceId">
 
+    <Space
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
     <com.gc.materialdesign.views.ButtonRectangle
-        android:layout_width="630px"
-        android:layout_height="400px"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
         android:text="Click to Vibrate!"
         android:id="@+id/vibrateButton"
-        android:background="#ffeeeae7"
+        android:background="#009688"
         android:textColor="#ffffffff"
-        android:textSize="15dp"
+        android:textSize="8dp"
         android:layout_alignParentTop="true"
         android:gravity="center_horizontal"
         android:layout_centerHorizontal="true" />
 
-</RelativeLayout>
+    <Space
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+</LinearLayout>

@@ -14,7 +14,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        startActivity(new Intent(MainActivity.this, Doodling.class));
+        startActivity(new Intent(MainActivity.this, ConnectActivity.class));
     }
 
 

@@ -52,6 +52,10 @@
             android:name=".ConnectActivity"
             android:label="ConnectActivity" >
         </activity>
+        <activity
+            android:name=".FlashUI"
+            android:label="@string/title_activity_flash_ui" >
+        </activity>
     </application>
 
 </manifest>
