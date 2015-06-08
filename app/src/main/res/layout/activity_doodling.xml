@@ -11,8 +11,8 @@
 
     <com.info498.bestgroup.tindar.DrawView
         android:id="@+id/canvas"
-        android:layout_width="100px"
-        android:layout_height="100px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:textColor="#FFFFFF" />
 
     <LinearLayout

@@ -23,10 +23,10 @@ public class Tindar extends Application {
 
     private static Tindar instance; // singleton
     public ConnectedThread connectedThread; // thread for managing connection between two devices
-
+    private static String doodle;
 
     public Tindar() {
-
+        doodle = "";
         if (instance == null) {
             instance = this;
         } else {
@@ -75,12 +75,15 @@ public class Tindar extends Application {
                 sendBroadcast(vibrate);
             } else if (intentMsg.contains("doodle")) {
                 // call doodling receiver
-                Log.i("doodle",intentMsg);
+                Log.i("doodleFinish",doodle);
                 Intent drawing = new Intent(instance,Drawing.class);
                 drawing.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                drawing.putExtra("bitmap",intentMsg.substring(7,intentMsg.length()));
-                Log.i("doodle2",intentMsg.substring(7,intentMsg.length()));
+                drawing.putExtra("bitmap",doodle);
                 startActivity(drawing);
+            }else if (intentMsg.contains("dood")) {
+                // call doodling receiver
+                Log.i("dood",doodle);
+                doodle = doodle + intentMsg.substring(5,intentMsg.length());
             }
         }
     };
@@ -136,7 +139,7 @@ public class Tindar extends Application {
         // used to send data to the remote device
         public void write(byte[] bytes) {
             try {
-                Log.i(CONNECTED_TAG, "Attempting to write to socket output stream");
+               // Log.i(CONNECTED_TAG, "Attempting to write to socket output stream");
                 btOutputStream.write(bytes);
             } catch (IOException e) {
                 Log.e(CONNECTED_TAG, "Error writing with output stream");

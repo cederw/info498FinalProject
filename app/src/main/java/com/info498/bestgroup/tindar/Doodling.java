@@ -110,10 +110,21 @@ public class Doodling extends Activity {
                 if (connectedThread != null) {
                     String temp = drawView.send();
                     Log.i("Doodle", "doodle "+ temp );
-                    if(temp.getBytes().length>8*1024){
-                        Log.i("Bytes","too many");
-                    }
-                        connectedThread.write(("doodle " + temp).getBytes());
+
+                    int index = 0;
+                        while(index<temp.length()){
+                            String temp2;
+                            if(index+100>=temp.length()){
+                                temp2 = temp.substring(index,temp.length());
+                            } else{
+                                temp2 = temp.substring(index,index+100);
+                            }
+
+                            connectedThread.write(("dood " + temp2).getBytes());
+                            index +=100;
+                        }
+                    connectedThread.write(("doodle " ).getBytes());
+
 
 
 

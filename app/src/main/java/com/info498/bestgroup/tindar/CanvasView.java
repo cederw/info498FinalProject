@@ -24,7 +24,7 @@ public class CanvasView extends View {
         Log.i("bitmap", encodedString);
         //Log.i("bitmapTest", test);
         //this.drawing = StringToBitMap(test);
-        this.drawing = StringToBitMap(encodedString);
+       // this.drawing = StringToBitMap(encodedString);
     }
 
     public Bitmap StringToBitMap(String encodedString){
