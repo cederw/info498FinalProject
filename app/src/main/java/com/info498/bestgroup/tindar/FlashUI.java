@@ -28,7 +28,7 @@ public class FlashUI extends Activity {
         flashButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //for (int i = 1; i <= sliderCount; i++) {
+                for (int i = 1; i <= sliderCount; i++) {
                     new android.os.Handler().postDelayed(
                             new Runnable() {
                                 public void run() {
@@ -41,8 +41,8 @@ public class FlashUI extends Activity {
                                     }
                                 }
                             },
-                            1000);//i * 1000);
-                //}
+                            i * 1000);
+                }
             }
         });
     }
