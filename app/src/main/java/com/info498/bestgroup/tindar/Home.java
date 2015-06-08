@@ -26,6 +26,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.gc.materialdesign.views.ButtonRectangle;
+import com.gc.materialdesign.views.ProgressBarCircularIndeterminate;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,9 +41,9 @@ public class Home extends Activity {
     TextView tagline;
     TextView search;
     ListView deviceList;
-    com.gc.materialdesign.views.ButtonRectangle findButton;
-    com.gc.materialdesign.views.ButtonRectangle stopButton;
-    com.gc.materialdesign.views.ProgressBarCircularIndeterminate spinner;
+    ButtonRectangle findButton;
+    ButtonRectangle stopButton;
+    ProgressBarCircularIndeterminate spinner;
     AnimatorSet oa = new AnimatorSet();
     boolean animating = false;
 
@@ -58,6 +61,8 @@ public class Home extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        startActivity(new Intent(Home.this, Doodling.class));
+
         Typeface robotoFont = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Bold.ttf");
         Typeface fontAwesome = Typeface.createFromAsset(getAssets(), "fonts/fontawesome.ttf");
 
@@ -65,9 +70,9 @@ public class Home extends Activity {
         tagline = (TextView) findViewById(R.id.tagline);
         search = (TextView) findViewById(R.id.search);
         deviceList = (ListView) findViewById(R.id.devices);
-        findButton = (com.gc.materialdesign.views.ButtonRectangle) findViewById(R.id.findButton);
-        stopButton = (com.gc.materialdesign.views.ButtonRectangle) findViewById(R.id.stopButton);
-        spinner = (com.gc.materialdesign.views.ProgressBarCircularIndeterminate) findViewById(R.id.spinner);
+        findButton = (ButtonRectangle) findViewById(R.id.findButton);
+        stopButton = (ButtonRectangle) findViewById(R.id.stopButton);
+        spinner = (ProgressBarCircularIndeterminate) findViewById(R.id.spinner);
 
         title.setTypeface(robotoFont);
         tagline.setTypeface(robotoFont);
