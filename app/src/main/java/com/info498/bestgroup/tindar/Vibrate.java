@@ -1,19 +1,13 @@
 package com.info498.bestgroup.tindar;
 
-import android.content.Context;
+import android.app.Activity;
 import android.graphics.Color;
-import android.graphics.Typeface;
-import android.os.Vibrator;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 
 
-public class Vibrate extends ActionBarActivity {
+public class Vibrate extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,14 +20,14 @@ public class Vibrate extends ActionBarActivity {
         vibrate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Vibrator v = (Vibrator) view.getContext().getSystemService(Context.VIBRATOR_SERVICE);
-                // Vibrate for 500 milliseconds
-                v.vibrate(500);
+                Tindar.ConnectedThread connectedThread = ((Tindar)getApplication()).connectedThread;
+                connectedThread.write("vibrate".getBytes());
             }
         });
 
         vibrate.setRippleSpeed(80f);
     }
+<<<<<<< HEAD
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -42,3 +36,6 @@ public class Vibrate extends ActionBarActivity {
         return true;
     }
 }
+=======
+}
+>>>>>>> 78f3e91957923e7a78e3f0bf7018c86cbf9b3d05

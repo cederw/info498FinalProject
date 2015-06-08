@@ -49,9 +49,9 @@ public class Tindar extends Application {
             if (intentMsg.contains("flash")) {
                 sendBroadcast(new Intent(instance, Flash.class));
             } else if (intentMsg.contains("vibrate")) {
-                sendBroadcast(new Intent(instance, Vibrate.class));
+                sendBroadcast(new Intent(instance, VibrateReceiver.class));
             } else if (intentMsg.contains("doodle")) {
-                //
+                // call doodling receiver
             }
         }
     };
