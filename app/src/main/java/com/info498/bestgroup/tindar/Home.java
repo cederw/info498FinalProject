@@ -149,15 +149,15 @@ public class Home extends Activity {
         devices = new ArrayList<>();
         arrayAdapter = new CustomArrayAdapter(this, devices);
 
-        //testing
-        devices.add("Name: Placeholder name \r\nBluetooth: F4.F9.51.85.23.66");
-        devices.add("Name: Placeholder name \r\nBluetooth: F4.F9.51.85.23.66");
-        devices.add("Name: Placeholder name \r\nBluetooth: F4.F9.51.85.23.66");
-        devices.add("Name: Placeholder name \r\nBluetooth: F4.F9.51.85.23.66");
-        devices.add("Name: Placeholder name \r\nBluetooth: F4.F9.51.85.23.66");
-        devices.add("Name: Placeholder name \r\nBluetooth: F4.F9.51.85.23.66");
-        devices.add("Name: Placeholder name \r\nBluetooth: F4.F9.51.85.23.66");
-        arrayAdapter.notifyDataSetChanged();
+//        //testing
+//        devices.add("Name: Placeholder name \r\nBluetooth: F4.F9.51.85.23.66");
+//        devices.add("Name: Placeholder name \r\nBluetooth: F4.F9.51.85.23.66");
+//        devices.add("Name: Placeholder name \r\nBluetooth: F4.F9.51.85.23.66");
+//        devices.add("Name: Placeholder name \r\nBluetooth: F4.F9.51.85.23.66");
+//        devices.add("Name: Placeholder name \r\nBluetooth: F4.F9.51.85.23.66");
+//        devices.add("Name: Placeholder name \r\nBluetooth: F4.F9.51.85.23.66");
+//        devices.add("Name: Placeholder name \r\nBluetooth: F4.F9.51.85.23.66");
+//        arrayAdapter.notifyDataSetChanged();
 
         deviceList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

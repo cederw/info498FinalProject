@@ -97,8 +97,8 @@
         android:layout_alignEnd="@+id/stopButton"
         android:layout_alignLeft="@+id/stopButton"
         android:layout_alignStart="@+id/stopButton"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginLeft="0dp"
         android:layout_above="@+id/search">
     </ListView>
 
