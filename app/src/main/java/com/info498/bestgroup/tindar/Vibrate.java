@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.RelativeLayout;
 
 
 public class Vibrate extends Activity {
@@ -13,6 +14,7 @@ public class Vibrate extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vibrate);
+        final RelativeLayout sliderGroup = (RelativeLayout) findViewById(R.id.sliderGroup);
 
         final com.gc.materialdesign.views.ButtonRectangle vibrate = (com.gc.materialdesign.views.ButtonRectangle) findViewById(R.id.vibrateButton);
 

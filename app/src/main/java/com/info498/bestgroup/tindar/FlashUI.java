@@ -10,6 +10,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 
 public class FlashUI extends ActionBarActivity {
@@ -19,45 +20,13 @@ public class FlashUI extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flash_ui);
 
-        final com.gc.materialdesign.views.ButtonRectangle flashOnce = (com.gc.materialdesign.views.ButtonRectangle) findViewById(R.id.flashOnce);
-        final com.gc.materialdesign.views.ButtonRectangle flashThrice = (com.gc.materialdesign.views.ButtonRectangle) findViewById(R.id.flashThrice);
-        final com.gc.materialdesign.views.ButtonRectangle flashTence = (com.gc.materialdesign.views.ButtonRectangle) findViewById(R.id.flashTence);
+        final com.gc.materialdesign.views.ButtonRectangle flashButton = (com.gc.materialdesign.views.ButtonRectangle) findViewById(R.id.flashlightButton);
+        RelativeLayout sliderGroup = (RelativeLayout) findViewById(R.id.sliderGroup);
 
-        flashOnce.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Tindar.ConnectedThread connectedThread = ((Tindar)getApplication()).connectedThread;
-                if (connectedThread.isAlive()) {
-                    byte[] word = "flash".getBytes();
-                    connectedThread.write(word);
-                }
-            }
-        });
-
-        flashThrice.setOnClickListener( new View.OnClickListener() {
+        flashButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 for (int i = 1; i<4; i++) {
-                    new android.os.Handler().postDelayed(
-                            new Runnable() {
-                                public void run() {
-                                    Tindar.ConnectedThread connectedThread = ((Tindar) getApplication()).connectedThread;
-                                    if (connectedThread.isAlive()) {
-                                        byte[] word = "flash".getBytes();
-                                        connectedThread.write(word);
-                                    }
-                                }
-                            },
-                            i * 1000);
-                }
-            }
-        });
-
-        flashTence.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Tindar.ConnectedThread connectedThread = ((Tindar) getApplication()).connectedThread;
-                for (int i = 1; i < 11; i++) {
                     new android.os.Handler().postDelayed(
                             new Runnable() {
                                 public void run() {
