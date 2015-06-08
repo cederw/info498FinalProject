@@ -20,22 +20,10 @@ public class Vibrate extends Activity {
         vibrate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Tindar.ConnectedThread connectedThread = ((Tindar)getApplication()).connectedThread;
+                Tindar.ConnectedThread connectedThread = ((Tindar) getApplication()).connectedThread;
                 connectedThread.write("vibrate".getBytes());
             }
         });
-
         vibrate.setRippleSpeed(80f);
     }
-<<<<<<< HEAD
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_vibrate, menu);
-        return true;
-    }
 }
-=======
-}
->>>>>>> 78f3e91957923e7a78e3f0bf7018c86cbf9b3d05
