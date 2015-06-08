@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Base64;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -50,6 +51,17 @@ public class Tindar extends Application {
         return bmp;
     }
 
+    public Bitmap StringToBitMap(String encodedString){
+        try {
+            byte [] encodeByte= Base64.decode(encodedString, Base64.DEFAULT);
+            Bitmap bitmap=BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+            return bitmap;
+        } catch(Exception e) {
+            e.getMessage();
+            return null;
+        }
+    }
+
     Handler connectionHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -63,6 +75,12 @@ public class Tindar extends Application {
                 sendBroadcast(vibrate);
             } else if (intentMsg.contains("doodle")) {
                 // call doodling receiver
+                Log.i("doodle",intentMsg);
+                Intent drawing = new Intent(instance,Drawing.class);
+                drawing.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                drawing.putExtra("bitmap",intentMsg.substring(7,intentMsg.length()));
+                Log.i("doodle2",intentMsg.substring(7,intentMsg.length()));
+                startActivity(drawing);
             }
         }
     };

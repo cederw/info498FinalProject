@@ -13,5 +13,6 @@
     <string name="title_activity_connected">Connected</string>
     <string name="title_activity_doodling">Doodling</string>
     <string name="title_activity_flash_ui">FlashUI</string>
+    <string name="title_activity_drawing">Drawing</string>
 
 </resources>
