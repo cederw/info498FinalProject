@@ -7,7 +7,7 @@ import android.os.Vibrator;
 
 
 public class VibrateReceiver extends BroadcastReceiver {
-    
+
     public VibrateReceiver() {}
 
     @Override

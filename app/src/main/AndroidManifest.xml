@@ -16,45 +16,40 @@
         android:icon="@drawable/appicon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:name=".Home"
+            android:label="@string/title_activity_home"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <receiver
-            android:name=".Flash"
-            android:enabled="true"
-            android:exported="true" >
-        </receiver>
-
-        <activity
-            android:name=".Home"
-            android:label="@string/title_activity_home" >
-        </activity>
         <activity
             android:name=".Vibrate"
-            android:label="@string/title_activity_vibrate" >
+            android:label="@string/title_activity_vibrate"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".Connected"
-            android:label="@string/title_activity_connected" >
+            android:label="@string/title_activity_connected"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".Doodling"
-            android:label="@string/title_activity_doodling" >
-        </activity>
-        <activity
-            android:name=".ConnectActivity"
-            android:label="ConnectActivity" >
+            android:label="@string/title_activity_doodling"
+            android:screenOrientation="portrait">
         </activity>
 
         <receiver
             android:name=".VibrateReceiver"
+            android:enabled="true"
+            android:exported="true" >
+        </receiver>
+        <receiver
+            android:name=".Flash"
             android:enabled="true"
             android:exported="true" >
         </receiver>
