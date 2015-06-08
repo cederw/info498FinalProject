@@ -2,14 +2,20 @@ package com.info498.bestgroup.tindar;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.gc.materialdesign.views.ButtonRectangle;
+import com.gc.materialdesign.views.Slider;
 
 
 public class FlashUI extends Activity {
@@ -21,8 +27,22 @@ public class FlashUI extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flash_ui);
 
-        final com.gc.materialdesign.views.ButtonRectangle flashButton = (com.gc.materialdesign.views.ButtonRectangle) findViewById(R.id.flashlightButton);
-        RelativeLayout sliderGroup = (RelativeLayout) findViewById(R.id.sliderGroup);
+        final ButtonRectangle flashButton = (ButtonRectangle) findViewById(R.id.flashlightButton);
+        Slider slider = (Slider) findViewById(R.id.flashlightSlider);
+        slider.setValue(3);
+
+        Typeface robotoFont = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Bold.ttf");
+
+        TextView text = (TextView) findViewById(R.id.flashText);
+        text.setTypeface(robotoFont);
+
+
+        slider.setOnValueChangedListener(new Slider.OnValueChangedListener() {
+            @Override
+            public void onValueChanged(int i) {
+                sliderCount = i;
+            }
+        });
 
 
         flashButton.setOnClickListener( new View.OnClickListener() {
