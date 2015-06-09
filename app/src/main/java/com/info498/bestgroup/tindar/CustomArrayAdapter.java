@@ -33,10 +33,9 @@ public class CustomArrayAdapter extends ArrayAdapter<String> {
 
         String lines[] = values.get(position).split("\\r?\\n");
 
-        String s = "Bluetooth Name: " + lines[0] + "\r\n"+ "MAC: " + lines[1];
+        String s = "Device: " + lines[0] + "\r\n"+ "MAC: " + lines[1];
 
         rowView.setText(s);
-//        rowView.setText(values.get(position));
         rowView.setTypeface(robotoFont);
         rowView.setTextSize(16);
 
