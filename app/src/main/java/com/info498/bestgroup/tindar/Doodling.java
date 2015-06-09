@@ -109,22 +109,29 @@ public class Doodling extends Activity {
                 Tindar.ConnectedThread connectedThread = ((Tindar) getApplication()).connectedThread;
                 if (connectedThread != null) {
                     String temp = drawView.send();
-                    Log.i("Doodle", "doodle "+ temp );
+                    Log.i("Doodle",temp );
 
-                    int index = 0;
-                        while(index<temp.length()){
-                            String temp2;
-                            if(index+100>=temp.length()){
-                                temp2 = temp.substring(index,temp.length());
-                            } else{
-                                temp2 = temp.substring(index,index+100);
-                            }
-
-                            connectedThread.write(("dood " + temp2).getBytes());
-                            index +=100;
-                        }
-                    connectedThread.write(("doodle " ).getBytes());
-
+//                    int index = 0;
+//                        while(index<temp.length()){
+//                            String temp2;
+//                            if(index+100>=temp.length()){
+//                                temp2 = temp.substring(index,temp.length());
+//                            } else{
+//                                temp2 = temp.substring(index,index+100);
+//                            }
+//                            String id = "DOODLEIDLENGTH";
+//                            if(temp2.length()>=100){
+//                                id = id+"00";
+//                            } else {
+//                                id = id+id.length();
+//                            }
+//                            connectedThread.write((id+temp2).getBytes());
+//                            index +=100;
+//                        }
+                    if(!temp.contains("=")){
+                        temp = temp+"===";
+                    }
+                    connectedThread.write(("doodle "+temp ).getBytes());
 
 
 

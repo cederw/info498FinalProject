@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,6 +23,7 @@ public class Drawing extends Activity {
         Intent intent = getIntent();
 
         String encodedString = intent.getStringExtra("bitmap");
+        Log.i("EncodedString",encodedString );
         pic = new CanvasView(this, encodedString);
         setContentView(pic);
     }
