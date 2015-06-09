@@ -13,6 +13,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -24,9 +25,10 @@ public class Tindar extends Application {
     private static Tindar instance; // singleton
     public ConnectedThread connectedThread; // thread for managing connection between two devices
     private static String doodle;
+    private static byte[] doodle2;
 
     public Tindar() {
-        doodle = "";
+        doodle = new String();
         if (instance == null) {
             instance = this;
         } else {
@@ -46,21 +48,7 @@ public class Tindar extends Application {
         connectedThread.start();
     }
 
-    public Bitmap convertToPNG(byte[] byteArray){
-        Bitmap bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-        return bmp;
-    }
 
-    public Bitmap StringToBitMap(String encodedString){
-        try {
-            byte [] encodeByte= Base64.decode(encodedString, Base64.DEFAULT);
-            Bitmap bitmap=BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
-            return bitmap;
-        } catch(Exception e) {
-            e.getMessage();
-            return null;
-        }
-    }
 
     Handler connectionHandler = new Handler() {
         @Override
@@ -75,15 +63,21 @@ public class Tindar extends Application {
                 sendBroadcast(vibrate);
             } else if (intentMsg.contains("doodle")) {
                 // call doodling receiver
-                Log.i("doodleFinish",doodle);
+                //Log.i("doodleFinish",doodle);
                 Intent drawing = new Intent(instance,Drawing.class);
                 drawing.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                drawing.putExtra("bitmap",doodle);
+                //drawing.putExtra("bitmap",doodle);
+                int end = 100;
+                if(intentMsg.contains("===")){
+                    end = intentMsg.indexOf("===");
+                } else if(intentMsg.contains("==")){
+                     end = intentMsg.indexOf("==")+2;
+                } else if(intentMsg.contains(("="))){
+                     end = intentMsg.indexOf("=")+1;
+                }
+                Log.i("wtf", intentMsg.substring(7,end));
+                drawing.putExtra("bitmap", intentMsg.substring(7,end));
                 startActivity(drawing);
-            }else if (intentMsg.contains("dood")) {
-                // call doodling receiver
-                Log.i("dood",doodle);
-                doodle = doodle + intentMsg.substring(5,intentMsg.length());
             }
         }
     };
@@ -116,7 +110,7 @@ public class Tindar extends Application {
         @Override
         public void run() {
             Log.i(CONNECTED_TAG, "Running connection management thread");
-            byte[] buffer = new byte[1024];
+            byte[] buffer = new byte[1024*1024];
             int bytes;
 
             while (true) {

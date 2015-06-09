@@ -158,26 +158,34 @@ public class DrawView  extends View {
     public String send(){
         invalidate();
         Bitmap bitmap = getDrawingCache();
+        //Bitmap newBitmap = scaleDownBitmap(bitmap,10,getContext());
+        BitmapFactory.Options opts = new BitmapFactory.Options();
+        opts.inSampleSize = 25;
+        ByteArrayOutputStream baos2=new  ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG,100, baos2);
+        byte [] b2=baos2.toByteArray();
+        Bitmap newBitmap = BitmapFactory.decodeByteArray(b2,0,b2.length,opts);
         ByteArrayOutputStream baos=new  ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG,100, baos);
+        newBitmap.compress(Bitmap.CompressFormat.PNG,100, baos);
         byte [] b=baos.toByteArray();
+        Log.i("byteWeight", b.length+"");
         String temp= Base64.encodeToString(b, Base64.DEFAULT);
         return temp;
 
-//        DisplayMetrics displayMetrics = getContext().getResources().getDisplayMetrics();
-//        int width = displayMetrics.widthPixels;
-//        int height = displayMetrics.heightPixels;
-//
-//        whatTheUserDrewBitmap =
-//                ThumbnailUtils.extractThumbnail(whatTheUserDrewBitmap, width, height);
-//
-//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//        whatTheUserDrewBitmap.compress(Bitmap.CompressFormat.PNG, 0, baos);
-//
-//        byte[] yourByteArray;
-//        yourByteArray = baos.toByteArray();
-//
-//        return yourByteArray;
+    }
+
+
+
+    public static Bitmap scaleDownBitmap(Bitmap photo, int newHeight, Context context) {
+
+        final float densityMultiplier = context.getResources().getDisplayMetrics().density;
+
+        int h= (int) (newHeight*densityMultiplier);
+        int w= (int) (h * photo.getWidth()/((double) photo.getHeight()));
+
+        photo=Bitmap.createScaledBitmap(photo, w, h, true);
+
+        return photo;
     }
 
 
