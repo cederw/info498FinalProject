@@ -70,8 +70,6 @@ public class DrawView  extends View {
 
         setColor(Color.parseColor("#AED581"));
         setWidth(20);
-        width = 100;
-        height = 100;
     }
     public void clearDrawing() {
         setDrawingCacheEnabled(false);
@@ -88,8 +86,8 @@ public class DrawView  extends View {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        width = 100;
-        height = 100;
+        width = w;
+        height = h;
         mBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
         mCanvas = new Canvas(mBitmap);
     }
