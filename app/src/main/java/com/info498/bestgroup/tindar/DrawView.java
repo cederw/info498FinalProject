@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.gc.materialdesign.views.ButtonRectangle;
 
@@ -157,6 +158,7 @@ public class DrawView  extends View {
 
     public String send(){
         invalidate();
+        Toast.makeText(getContext(), "Doodle Sent!", Toast.LENGTH_LONG).show();
         Bitmap bitmap = getDrawingCache();
         //Bitmap newBitmap = scaleDownBitmap(bitmap,10,getContext());
         BitmapFactory.Options opts = new BitmapFactory.Options();
@@ -169,6 +171,7 @@ public class DrawView  extends View {
         newBitmap.compress(Bitmap.CompressFormat.PNG,100, baos);
         byte [] b=baos.toByteArray();
         Log.i("byteWeight", b.length+"");
+        clearDrawing();
         String temp= Base64.encodeToString(b, Base64.DEFAULT);
         return temp;
 
