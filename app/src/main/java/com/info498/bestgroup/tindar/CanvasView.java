@@ -31,7 +31,9 @@ public class CanvasView extends View {
     public Bitmap StringToBitMap(String encodedString){
         try {
             byte [] encodeByte= Base64.decode(encodedString, Base64.DEFAULT);
+
             Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+
             //drawing = bitmap;
             return bitmap;
         } catch(Exception e) {
@@ -44,7 +46,8 @@ public class CanvasView extends View {
         super.onDraw(canvas);
         canvas.drawColor(Color.WHITE);
         try {
-            canvas.drawBitmap(drawing, (canvas.getWidth() / 2), (canvas.getHeight() / 2), null);
+            Bitmap temp = Bitmap.createScaledBitmap(drawing,canvas.getWidth(), canvas.getHeight(), false);
+            canvas.drawBitmap(temp, 0, 0, null);
         } catch(Exception e){
             //sometimes the images are the wrong size
             Log.e("Canvas","failed to draw");
